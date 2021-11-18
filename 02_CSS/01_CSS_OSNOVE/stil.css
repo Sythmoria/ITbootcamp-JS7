@@ -1,0 +1,32 @@
+h3{
+    color:green;
+    text-decoration: line-through;
+}
+h1{
+    color:purple;
+}
+p{
+    color:rgb(10, 65, 57);
+}
+
+#prvi{
+    text-align: right;
+    background-color: orange; /*ID je nadmocniji u odnosu na klasu, zato nece preuzeti odozdo boju pozadine nego ce iz ovog IDja*/
+}
+
+.zuta_pozadina{
+    background-color: yellow;
+    text-align: center;
+    font-weight: bold;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    /*Courier New je najuzi skup, ako to ne uspe probace sa sirim skupom pa sa najsirim skupom*/
+    margin: 50px;
+}
+
+*{
+    margin: 50px;
+    /*oko SVIH ZASEBNIH elemenata stavlja 50px, ovo se odnosi na SVAKI pojedinacni element*/
+}

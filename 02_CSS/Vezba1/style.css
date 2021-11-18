@@ -1,0 +1,52 @@
+body{
+    background:rgb(204, 119, 34);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+h1{
+    color:maroon;
+}
+
+h3{
+    color:red;
+}
+
+p{
+    color:purple;
+}
+
+.slika{
+    width: 400px;
+    height: 300px;
+    border-style: dashed;
+    border-width:  2px;
+    /*moglo je i border: red 10px solid;*/
+}
+
+a{
+    color:orange;
+}
+
+a:hover{
+    color:yellow;
+}
+
+a:active{
+    color:green;
+}
+
+.naslov{
+    text-align: center;
+}
+
+#paragraf{
+    text-align: right;
+    font-size: 24px;
+}
+
+.naslov_trecaVezba{
+    text-align: center;
+    color:green;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}

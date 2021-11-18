@@ -1,0 +1,63 @@
+body{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.crveni_paragraf{
+    color:red;
+}
+.desno_poravnanje{
+    text-align: right;
+}
+
+/*Vise elemenata sa istim svojstvom*/
+h3, h4 {
+    color:orange;
+}
+
+.drugi, #treci{
+    background-color: yellow;
+}
+
+/* Prioritet: selektor < klasa < id */
+
+li{
+    color:green;
+}
+
+.kurs{
+    color:blue;
+}
+
+#js{
+    color:red;
+}
+
+/* Selektovanje svih parametara unutar div elementa */
+
+div p{
+    text-decoration: underline;
+}
+
+div .podparagraf{
+    font-weight: bold;
+}
+
+#divizija>p{
+    /* selektovanje direktnog potomka ispod diva */
+    font-family: 'Courier New', Courier, monospace;
+    /* samo direktni potomci divizije ce dobiti ovaj format */
+}
+
+ol li:nth-child(3n){
+    /* selektovati svaki treci clan liste -> 3n*/
+    /* selektovati TRECI clan u svakoj listi -> upisi samo 3 */
+    font-style:italic;
+}
+
+ol li:nth-child(3){
+    color:red;
+}
+
+ol li:nth-child(odd){
+    background-color:greenyellow;
+    /* selektovati svaki neparni clan liste */
+}
