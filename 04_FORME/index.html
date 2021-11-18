@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forme</title>
+</head>
+
+<body>
+    <form action="">
+
+        <fieldset>
+            <legend>Osnovni podaci</legend>
+            <p>
+                <label>Ime: </label>
+                <input type="text" maxlength="15" value="Ana">
+                <!-- pozeljno je ne podesavati ogranicenja max i min broj karaktera jer neki browseri ne podrzavaju ovo a mi ne mozemo da uticemo na to sta ce korisnici unositi -->
+            </p>
+            <p>
+                <label>Prezime: </label>
+                <input type="text" placeholder="Unesite prezime">
+                <!-- sivo je, ne moze da se selektuje -->
+            </p>
+            <p>
+                <label>Godine: </label>
+                <input type="number" min="18" step="1">
+                <!-- a u browser i dalje mozemo upisati -14 i prihvatilo bi, tako da je min beskorisno -->
+                <!-- step je za koliko mozemo da pomeramo brojke onom strelicom pored -->
+            </p>
+            <p>
+                <label>E-mail: </label>
+                <input type="email" name="" id="">
+            </p>
+            <p>
+                <label>Lozinka: </label>
+                <input type="password" name="" id="">
+                <!-- to stvara one tackice, da se ne vidi sta se kuca -->
+            </p>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Ostali podaci</legend>
+
+            <p>
+                <label>Odaberite pol: </label>
+                <input type="radio" name="pol" id="" value="z">Zenski
+                <input type="radio" name="pol" id="" value="m">Muski
+                <input type="radio" name="pol" id="" value="d" checked>Drugo
+                <!-- bitno je da bude isti name, da bi samo jedan radio button mogao da se cekira na web stranici -->
+            </p>
+
+            <p>
+                <label>Odaberite kurs: </label>
+                <input type="radio" name="kurs" id="" value="js">JS
+                <input type="radio" name="kurs" id="" value="php">PHP
+                <input type="radio" name="kurs" id="" value="qa">QA
+            </p>
+
+            <p>
+                <label>Odaberite programske jezike koje zelite da naucite: </label>
+                <!-- koristi checkbox da bi mogla vise da chekirash posle -->
+                <!-- value moze da se ponavlja u razlicitim grupacijama, samo je bitno name da bude drugaciji -->
+                <br>
+                <input type="checkbox" name="jezik" id="" value="js">JS
+                <input type="checkbox" name="jezik" id="" value="php">PHP
+                <input type="checkbox" name="jezik" id="" value="c++">C++
+                <input type="checkbox" name="jezik" id="" value="java">Java
+                <input type="checkbox" name="jezik" id="" value="python">Python
+            </p>
+
+            <p>
+                <label>Obrazovanje: </label>
+                <select name="Obrazovanje" id="">
+                    <option value="os">Osnovna skola</option>
+                    <option value="ss">Srednja skola</option>
+                    <!-- <option value="f">Fakultet</option> 
+                    ovo izbacujemo jer hocemo da bude sivo, i umesto ovoga cemo optgroup da koristimo i da mu dodamo pod-opcije-->
+                    <optgroup label="Fakultet">
+                        <option value="oas">OAS</option>
+                        <!-- osnovne akademske studije = oas -->
+                        <option value="mas">MAS</option>
+                        <option value="das">DAS</option>
+                    </optgroup>
+                </select>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Posalji">
+            <!-- ovde pod VALUE stavljamo ono sto zelimo da zapravo pise na ekranu -->
+            <input type="reset" value="Resetuj">
+            <button>KLIKNI</button>
+            <!-- submit se koristi kad hocemo neke info da posaljemo a button mozemo da koristimo tipa kad hocemo "klikni ovde da se prikaze slika" ili da se dodaju dugmici za kalkulator -->
+        </p>
+
+        <p>
+            <select>
+                <option value="" disabled selected>Prikazuje se kao placeholder ali ne može da se na njega klikne
+                </option>
+                <option value="op1">Opcija 1</option>
+                <option value="op2">Opcija 2</option>
+            </select>
+        </p>
+
+    </form>
+</body>
+
+</html>
