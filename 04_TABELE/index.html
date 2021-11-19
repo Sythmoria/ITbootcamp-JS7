@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele</title>
+
+    <style>
+        #tabela {
+            border: 1px red solid;
+        }
+
+        #tabela td {
+            border: 1px blue solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- klasicna tabela: -->
+
+    <table id="tabela">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <!-- spajanje kolona u prvom redu, od 3 kolona jednu dobijemo -->
+
+    <table border="1" cellspacing="0">
+        <tr>
+            <td colspan="3">1</td>
+            <!-- sa colspan spajamo kolone -->
+            <!-- <td>2</td>
+            <td>3</td> 
+        ove cemo obrisati jer nam ne trebaju, jer spajamo kolone-->
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <!-- spajanje tri reda u jedan red -->
+
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="3">3</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <!-- ovo je visak, brise se: <td>6</td> -->
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <!-- ovo je visak, brise se: <td>9</td> -->
+        </tr>
+    </table>
+</body>
+
+</html>
