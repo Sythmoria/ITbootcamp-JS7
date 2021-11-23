@@ -1,0 +1,21 @@
+img{
+    width: 50%;
+}
+
+/* kada je ekran manji od 700px, slika ima 100% sirinu, a precrtati tekst u paragrafu: */
+@media only screen and (max-width: 700px){
+    img{
+        width: 100%;
+    }
+    p{
+        text-decoration: line-through;
+    }
+}
+
+/*Ekran sirine izmedju 500px i 700px -> obojiti tekst paragrafa u ljubicasto*/
+
+@media only screen and (min-width: 500px) and (max-width: 700px) {
+    p{
+        color: purple;
+    }
+}
