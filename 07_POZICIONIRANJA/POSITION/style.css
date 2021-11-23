@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{
+    background-color: blueviolet;
+    position: fixed;
+    top: 0;
+    /* kada stavimo position: fixed onda header je dug kao tekst samo, moramo dodati width */
+    width: 100%;
+    z-index: 100;
+}
+section{
+    position: relative;
+    top: 35px;
+    left: 50px;
+    /* z-index: -1; ovo utice na linkove, zbog minusa ne mozemo da kliknemo na linkove*/
+    background-color: brown;
+    margin: 10px;
+    width: 400px;
+    /* height: 400px; aj da smanjimo*/
+    height: 250px;
+}
+
+section img{
+    position: absolute; /*pozicionira se img u odnosu na parent koji ima position vec, u ovom slucaju u odnosu na section*/
+    top: 50px;
+    left: 20px;
+    height: 150px;
+    width: 150px;
+}
+
+section p{
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+section a{
+    position: absolute;
+    right: 20px;
+    /* bottom: 200px; i ovo da smanjimo*/
+    bottom: 50px;
+}

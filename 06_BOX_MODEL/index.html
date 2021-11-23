@@ -23,17 +23,38 @@
             width: 300px;
             height: 100px;
             background-color: blueviolet;
+            display: block;
+        }
+
+        span {
+            width: 50%;
+            /* width 50% se odnosi na 50% od cele stranice  - cak i tad ce razdvajati elemente u novi red jer zbog margine ne moze da podeli dva elementa da su u jednom redu -> tek kad se doda border-box sve je u redu*/
+            border: 8px solid black;
+            padding 5px;
+            height: 250px;
+            display: inline-block;
+            margin: 0px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            /* mozes dodati i outline */
         }
     </style>
 </head>
 
 <body>
-
-    <p>Tekst prvog paragrafa</p>
-    <p>Tekst drugog paragrafa</p>
-
-    <span>Tekst prvog spana</span>
-
+    <section>
+        <p>Tekst prvog paragrafa</p>
+        <p>Tekst drugog paragrafa</p>
+        <span>Tekst prvog spana</span><span>Tekst drugog spana</span>
+    </section>
 </body>
 
 </html>

@@ -1,0 +1,54 @@
+*{
+    box-sizing:border-box;
+    margin: 0;
+}
+
+/*
+Kada se koristi float svojstvo, mora da postoji:
+    1) deca koja se redjaju: 
+        float: (left ili right)
+    2) roditelj unutar kojeg se redjaju: 
+        overflow: hidden
+*/
+#parent{
+    background-color: brown;
+    width: 100%;
+    overflow: hidden; /*visak sadrzaja se ne prikazuje, iseca se*/
+}
+
+#parent p{
+    background-color: burlywood;
+    float: right;
+    width: 25%;
+}
+
+#parent p:first-child{
+    float: left;
+}
+
+/* ovo bi bilo kao rucni rad, ima bolje resenje od ovog
+#parent{
+    background-color: brown;
+    position: relative;
+    width: 100%;
+    height: 18.5px; */
+    /* moramo da dodamo height jer racuna da je visina div 0 */
+/* }
+
+#parent p{
+    background-color: burlywood;
+    width: 25%;
+    position: absolute;
+}
+
+#parent p:nth-child(1){
+    left: 0;
+}
+
+#parent p:nth-child(2){
+    left: 25;
+}
+
+#parent p:nth-child(3){
+    left: 50;
+} */
