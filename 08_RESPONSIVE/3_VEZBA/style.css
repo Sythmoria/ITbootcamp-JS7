@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.row{
+    width: 100%;
+    overflow: hidden;
+}
+
+[class*="col-"] {
+    float: left;
+    border: 1px solid black; /*ovo ubacujemo da bismo bolje videli elemente gde je sta*/
+}
+
+
+/* za mobilne uredjaje */
+@media only screen and (max-width: 600px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+/* za desktop */
+@media only screen and (min-width: 601px) {
+    .col-1 { 
+        width: calc(100% / 12); 
+    }
+    .col-2 { 
+        width: calc(100% / 12 * 2); 
+    }
+    .col-3 { 
+        width: calc(100% / 12 * 3); 
+    }
+    .col-4 { 
+        width: calc(100% / 12 * 4); 
+    }
+    .col-5 { 
+        width: calc(100% / 12 * 5); 
+    }
+    .col-6 { 
+        width: calc(100% / 12 * 6); 
+    }
+    .col-7 { 
+        width: calc(100% / 12 * 7); 
+    }
+    .col-8 { 
+        width: calc(100% / 12 * 8); 
+    }
+    .col-9 { 
+        width: calc(100% / 12 * 9); 
+    }
+    .col-10 { 
+        width: calc(100% / 12 * 10); 
+    }
+    .col-11 { 
+        width: calc(100% / 12 * 11); 
+    }
+    .col-12 { 
+        width: 100%; 
+    }
+}
+
+
+/* STILIZOVANJE STRANICE */
+
+/* header & footer */
+header, footer{
+    text-align: center;
+    background-color: aqua;
+    padding: 15px 0;
+}
+
+footer{
+    /*fiksiranje futera za donju ivicu ekrana -> time ga izvucemo iz body taga, i onda moramo dodati nesto na dnu poslednjeg elementa, npr donju marginu -> pogledaj .section*/
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    padding-bottom: 35px;
+}
+
+/* navigation */
+nav ul{
+    list-style-type: none;
+    background-color: cadetblue;
+}
+
+nav ul li{
+    border-bottom: 1px solid aqua;
+}
+
+nav ul li a{
+    text-decoration: none;
+    padding: 10px;
+    display:block; /*ovo ubacujemo da bi mogli da kliknemo na celo polje a ne da je samo text clickable*/
+}
+
+nav ul li:hover{
+    background-color: aqua;
+}
+
+/* linear gradient*/
+
+aside, .gradient{
+    background-image: linear-gradient(cadetblue, white);
+}
+
+/* fixing image width */
+
+img{
+    width: 100%;
+}
+
+.gradient{
+    margin-bottom: 30px; /*poklapa se sa visinom futera*/
+}
