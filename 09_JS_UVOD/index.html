@@ -17,6 +17,7 @@
     <p id="p1">Uvod u JavaScript</p>
 
     <script>
+        /*
         //window.alert("Hello World!");
         //alert("Zdravo svete!");
         document.write("Hello world!");
@@ -34,7 +35,43 @@
         console.log('It\'s alright'); //e sad ce da racuna apostrof
         console.log(true);
         console.log(false);
+
+        let x; //samo jedanput se deklarise promenljiva
+        console.log(x); //undefined
+        x = 3; //dodela vrednosti
+        console.log(x);
+        x = "Stefan";
+        console.log(x);
+
+        let y = false;
+        console.log(y);
+        y = x;
+        console.log(x, y);
+        x = "Jelena";
+        console.log(x, y); // x="Jelena" , y="Stefan"
+
+        const z = 0;
+        console.log(z);
+        y = 6 + z;
+        console.log(y); // y = 6
+        // z = 6 + y; -> ne mozemo da menjamo konstantu
+
+        // const p;
+        // p = 9;
+        // ne moze ovako, mora da se deklarise vrednost u istoj liniji
+
+        let age;
+        console.log(age, age + 3); //undefined, NaN (Not a Number)
+
+        let age2 = null;
+        console.log(age2, age2 + 3, age2 + "Pera"); //NULL, 3, nullPera
+        */
+
     </script>
+
+    <!-- <script src="script.js"></script> -->
+
+    <script src="vezbanja.js"></script>
 </body>
 
 </html>
