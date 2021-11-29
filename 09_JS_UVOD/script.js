@@ -78,15 +78,24 @@ let kusur = novcanica - cenaRobe;
 console.log(kusur);
 
 // zadatak4
-const datum = new Date();
-let tSat = datum.getHours();
-let tMin = datum.getMinutes();
-odPonoci = tSat * 60 + tMin;
-console.log(odPonoci);
+// const datum = new Date();
+// let tSat = datum.getHours();
+// let tMin = datum.getMinutes();
+// odPonoci = tSat * 60 + tMin;
+// console.log(odPonoci);
 
 // zadatak5
 //yyyy/mm/dd
-let dDatum = datum.getFullYear();
-let dMonth = datum.getMonth() + 1; //meseci krecu od nule
-let dDay = datum.getDate();
-console.log(dDatum + "/" + dMonth + "/" + dDay);
+// let dDatum = datum.getFullYear();
+// let dMonth = datum.getMonth() + 1; //meseci krecu od nule
+// let dDay = datum.getDate();
+// console.log("Danas je " + dDatum + "/" + dMonth + "/" + dDay);
+
+//Trenutno vreme i datum
+let datum = new Date(); // datum - objekat koji sadrzi
+let godina = datum.getFullYear();
+let mesec = datum.getMonth() + 1;
+let datumUMesecu = datum.getDate();
+let danUNedelji = datum.getDay();
+console.log("Danas je " + datumUMesecu + "." + mesec + "." + godina + ".");
+console.log(danUNedelji);
