@@ -1,5 +1,8 @@
 "use strict"; // mora pravilno da se kuca JS kod :)
 //zadatak1
+
+// Date su dve promenljive u kojima su dati vreme u satima i minutima.  Izračunati koliko minuta je prošlo od ponoći.
+
 let s = 15;
 let m = 21;
 
@@ -12,6 +15,9 @@ let doPonoci = 24 * 60 - odPonoci;
 console.log("Do ponoci je ostalo: " + doPonoci + " minuta");
 
 // Zadatak2
+
+// Za dato vreme u minutima koji su prošli od ponoći, odrediti koliko je to u satima i minutima.
+
 let minOdPonoci = 909; // 921 = 15*60 + 21
 // minOdPonoci = ___ * 60 + minSada
 // minOdPonoci - minSada = ___ * 60
@@ -34,6 +40,9 @@ let minSada2 = minOdPonoci % 60;
 console.log("Sada je " + satSada2 + ":" + minSada2);
 
 // zadatak3
+
+// Date su dve promenljive kojima se zadaje cena robe i uneta novčanica kojom kupac plaća račun. Ispisati koliki kusur kasirka treba da mu vrati.
+
 let cenaRobe = 1750;
 let novcanica = 2000;
 
@@ -41,11 +50,19 @@ let kusur = novcanica - cenaRobe;
 console.log("Kusur koji treba da se vrati je " + kusur + " dinara.");
 
 //zadatak 4 i 5
+
+// 4) Uraditi zadatak 1 tako da se dohvati trenutno vreme, i za njega odredi koliko minuta je prošlo od ponoći.
+// 5) Ispisati u konzoli današnji datum u formatima dd.mm.yyyy. i yyyy/mm/dd.
+
+
 // const datum = new Date();
 // let tSat = datum.getHours();
 // let tMin = datum.getMinutes();
 
 //zadatak 6
+
+// Data je promenljiva u kojoj je ukupan broj evra koji posedujemo, kao i promenljiva u kojoj je vrednost trenutnog kursa. Odrediti koliko ćemo imati dinara nakon razmene. Uraditi isto i za konverziju iz dinara u evre.
+
 let evriKojePosedujemo = 200;
 let trenutniKurs = 117.5782;
 
@@ -59,6 +76,9 @@ let dinUevro = (dinKojePosedujemo / trenutniKurs).toFixed(2);
 console.log(dinKojePosedujemo + " dinara je " + dinUevro + "evra.");
 
 //zadatak 7
+
+// Data je promenljiva u kojoj je ukupan broj evra koji posedujemo, kao i promenljive u kojima je vrednost kurseva evro-dinar, kao i dolar-dinar, redom. Odrediti koliko ćemo imati dolara nakon razmene. Uraditi isto i za konverziju iz dolare u evre.
+
 let evriKojePosedujemo2 = 200;
 let kursEuRSD = 117.5782;
 let kursUSDuRSD = 104.7281;

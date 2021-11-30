@@ -36,6 +36,7 @@ else {
 
 //  PRVI ZADATAK
 
+
 let c = 8;
 let d = 10;
 if (c > d) {
@@ -46,6 +47,8 @@ else {
 }
 
 // DRUGI ZADATAK
+
+
 let Temp = 24;
 if (Temp >= 0) {
     document.body.innerHTML = `<p style="color: red">temperatura od ${Temp} stepeni je u plusu.</p>`
@@ -58,7 +61,19 @@ else {
 
 // TRECI ZADATAK
 
+
+let pol = "m";
+if (pol == "m") {
+    //prikazi avatar muskarca
+    document.body.innerHTML += `<img src="slike/m.jpg">`;
+}
+else {
+    //prikazi avatar zene
+    document.body.innerHTML += `<img src="slike/z.jpg">`;
+}
+
 // CETVRTI ZADATAK
+
 
 let datum = new Date();
 let sati = datum.getHours();
@@ -71,6 +86,8 @@ else {
 
 // PETI ZADATAK
 
+//
+
 let godina = datum.getFullYear();
 let UnetaGodina = 1989;
 if (godina - UnetaGodina >= 18) {
@@ -81,6 +98,8 @@ else {
 }
 
 // SESTI ZADATAK
+
+// 
 
 // sa logickim operatorom &&
 // let e = 5;
@@ -119,3 +138,20 @@ else {
 }
 
 console.log(`${rezultat} je najveci broj`);
+
+//resenja sa casa
+let b1 = 15;
+let b2 = 7;
+let b3 = 29;
+
+let maks = b1; //pretpostavka
+
+//ako je moja pretpostavka losa uradim njen update
+if (maks < b2) {
+    maks = b2;
+}
+if (maks < b3) {
+    maks = b3;
+}
+document.body.innerHTML += `<p>${maks} je najveci broj od </p>`;
+
