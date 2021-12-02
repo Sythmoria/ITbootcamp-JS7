@@ -26,7 +26,7 @@ console.log(`Vrednost promenljive i nakon petlje je: ${i}`);
 // Svaki u novom redu
 
 // 1A
-let rez = "";
+let rez = ""; //navodnici obezbedjuju da bude string i da bude prazno
 let j = 1;
 while (j <= 20) {
     rez += j + " ";
@@ -91,13 +91,13 @@ i = 1;
 while (i <= n) {
     //Doda se paragraf
     if (i % 3 == 1) {
-        document.body.innerHTML += `<p style:='color:red'>${i} paragraf</p>`;
+        document.body.innerHTML += `<p style='color:red'>${i} paragraf</p>`;
     }
     else if (i % 3 == 2) {
-        document.body.innerHTML += `<p style:='color:purple'>${i} paragraf</p>`;
+        document.body.innerHTML += `<p style='color:purple'>${i} paragraf</p>`;
     }
     else {
-        document.body.innerHTML += `<p style:='color:green'>${i} paragraf</p>`;
+        document.body.innerHTML += `<p style='color:green'>${i} paragraf</p>`;
     }
     i++;
 }
