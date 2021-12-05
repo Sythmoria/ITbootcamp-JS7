@@ -340,6 +340,12 @@ else {
 
 // ZADATAK 20
 
+/* Napraviti tabelu sa 6 redova.
+Svaki red tabele treba da ima po dve ćelije (dve kolone).
+Svakom parnom redu dodati klasu „obojen“.
+Korišćenjem CSS-a, klasi obojen postaviti proizvoljnu boju pozadine. 
+ */
+
 // style="border:2px solid black"
 
 let tabela = `<table border="1">`;
@@ -365,3 +371,94 @@ for (let red = 1; red <= 6; red++) {
 }
 tabela += `</table>`;
 document.body.innerHTML += tabela;
+
+document.body.innerHTML += `<br>`;
+
+// ZADATAK 21
+
+/* Koristeći for petlju kreirati neuređenu listu sa ugnježdenim elementima, kao što je prikazano na slici sa desne strane.
+ */
+
+let lista = `<ul>`;
+let el = 0;
+for (let elementi = 1; elementi <= 10; elementi++) {
+    if (elementi % 3 == 0) {
+        el++;
+        lista +=
+            `
+        <li class="purple">Element ${el}</li>
+        `
+    }
+    else {
+        el++;
+        lista +=
+            `
+        <li>Element ${el}</li>
+        `
+    }
+}
+lista += `</ul>`;
+document.body.innerHTML += lista;
+
+document.body.innerHTML += `<br>`;
+
+// ZADATAK 22
+
+/* Kreirati 64 span elemenata i rasporediti ih kao na slici desno, koristeći for petlju. */
+
+let tabla = `<p>Zadatak 22</p>`;
+for (let elementi = 1; elementi <= 64; elementi++) {
+    tabla +=
+        `<span class="okvir">${elementi}</span>`;
+    if (elementi % 8 == 0) {
+        tabla += `<br><br>`;
+    }
+}
+document.body.innerHTML += tabla;
+
+
+// DRUGI NACIN
+
+/* Kreirati 64 span elemenata i rasporediti ih kao na slici desno, koristeći for petlju. */
+
+let tabla3 = `<p>Zadatak 22a</p>`;
+for (let red = 1; red <= 64; red += 8) {
+    for (let kolona = 1; kolona <= 8; kolona++) {
+        tabla3 +=
+            `<span class="okvir">${red + kolona - 1}</span>`;
+    }
+    tabla3 += `<br><br>`;
+}
+document.body.innerHTML += tabla3;
+
+// ZADATAK 23
+
+/* Kreirati 64 span elemenata i rasporediti ih kao na slici desno, tako da elementi izgledaju kao polja šahovske table.
+U realizaciji ovog zadatka koristiti for petlju. */
+
+
+let tabla2 = `<p>Zadatak23</p>`;
+let beloPolje = 1;
+for (let elementi2 = 1; elementi2 <= 64; elementi2++) {
+    if (beloPolje == 1) {
+        tabla2 +=
+            `<span class="okvir">${elementi2}</span>`;
+        if (elementi2 % 8 == 0) {
+            tabla2 += `<br><br>`;
+        }
+        else {
+            beloPolje = 0; //menjamo boju samo kada nije 8. Kada dodje do broja deljivim 8, naredni je iste boje, i tada ne menjamo.
+        }
+    }
+    else {
+        tabla2 +=
+            `<span class="crno">${elementi2}</span>`;
+        if (elementi2 % 8 == 0) {
+            tabla2 += `<br><br>`;
+        }
+        else {
+            beloPolje = 1;
+        }
+    }
+}
+document.body.innerHTML += tabla2;
