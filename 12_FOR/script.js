@@ -452,7 +452,7 @@ for (let elementi2 = 1; elementi2 <= 64; elementi2++) {
     }
     else {
         tabla2 +=
-            `<span class="crno">${elementi2}</span>`;
+            `<span class="okvir crno">${elementi2}</span>`;
         if (elementi2 % 8 == 0) {
             tabla2 += `<br><br>`;
         }
