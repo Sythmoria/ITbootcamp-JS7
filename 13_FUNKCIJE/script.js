@@ -566,3 +566,17 @@ console.log(praksa3);
 /*Na igrama bez granica, ekipi je postavljen zadatak da za što kraće vreme pređe stazu na kojoj se nalazi pokretni most. Takmičaru ove ekipe od polazne tačke do mosta treba t sekundi. Tačno p sekundi od kada takmičar može da krene sa polazne tačke (tj. od početka merenja) most počinje da se podiže. Od trenutka podizanja pa do spuštanja mosta protiče n sekundi i prelaz preko mosta za to vreme nije moguć. Nakon toga most ostaje spušten. Takmičari za čekanje kod mosta dobijaju negativne poene, pa je tim rešio da napravi program koji će im tačno odrediti u kojoj sekundi treba da pođu sa startne pozicije kako ne bi dobijali negativne poene. Pomozite timu da napravi funkciju na osnovu prosleđenih vrednosti t, p i n. Funkcija vraća koliko sekundi nakon početka merenja vremena treba da pođe, kako bi prošli poligon bez zaustavljanja.
 npr: t=15, p=20, n=25, čekanje je 0s
 npr: t=15, p=10, n=12, čekanje je 7s*/
+
+function staza(t, p, n) {
+    let cekanje;
+    if (p <= t) {
+        cekanje = n - (t - p);
+    }
+    else {
+        cekanje = 0;
+    }
+    return cekanje;
+}
+
+let x = staza(15, 20, 25);
+console.log(`Ekipa treba da ceka ${x} sekundi.`);
