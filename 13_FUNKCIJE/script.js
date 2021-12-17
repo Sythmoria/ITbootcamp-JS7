@@ -509,7 +509,7 @@ petPuta("In the name of the Moon, I shall punish you.", "red");
 //  Napišite funkciju kojoj se prosleđuju brojevi n i a. Funkcija treba da vrati vrednosti (RETURN!!!) koliko ćete ukupno navca zaraditi, ukoliko svakog meseca budete dobijali povišicu.
 //  Testirati zadatak (pozvati funkciju i ispisati vrednost koju ona vraća).
 
-//ovo je ako treba da se izracuna poslednja plata
+//ovo je ako treba da se izracuna samo visina poslednje plate nakon povisica tj. sa dodatim povisicama
 function praksa(n, a, d) {
     if (Math.floor(n) === n && n > 0) {
         for (let i = 2; i <= n; i++) { //kreni od dvojke jer tek od drugog meseca ide povisica
@@ -525,7 +525,7 @@ function praksa(n, a, d) {
 let praksa1 = praksa(4, 50000, 5000)
 console.log(praksa1);
 
-//koliko iznosi suma povisica i plata
+//koliko iznosi suma svih BONUSA (fixno plata + fixni bonus mesecno) i svih plata
 
 function praksaA(n, a, d) {
     let suma = a;
@@ -543,6 +543,7 @@ function praksaA(n, a, d) {
 let praksa2 = praksaA(4, 50000, 5000)
 console.log(praksa2);
 
+// ovo je sa POVISICAMA:
 function praksaB(n, a, d) {
     let suma;
     if (Math.floor(n) === n && n > 0) {
@@ -559,6 +560,18 @@ function praksaB(n, a, d) {
 let praksa3 = praksaB(3, 5000, 200)
 console.log(praksa3);
 
+/* function ukupno_plata (n,a,d) {
+ let sum = a;
+ for(let i=2; i<=n; i++) {
+     a+=d;
+     sum+=a;
+ }
+ return sum
+}
+let krajPlata1 = ukupno_plata(5,5000,200);
+console.log(krajPlata1);
+// 5000+5200+5400+5600+5800 = 27000 -> tacno jeeeeeee
+*/
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
@@ -569,11 +582,11 @@ npr: t=15, p=10, n=12, čekanje je 7s*/
 
 function staza(t, p, n) {
     let cekanje;
-    if (p <= t) {
+    if (p <= t || t < p + n) {
         cekanje = n - (t - p);
     }
     else {
-        cekanje = 0;
+        cekanje = 0; //ili ovo da ode u if, kao if (p>t || t>=p+n)
     }
     return cekanje;
 }
