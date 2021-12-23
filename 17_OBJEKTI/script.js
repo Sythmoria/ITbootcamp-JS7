@@ -153,14 +153,12 @@ let vreme = {
     },
     /*6) Za dan se smatra da je leden ukoliko nijedna temperatura izmerena tog dana nije iznosila iznad 0 stepeni. Metod vraća true ukoliko je dan bio leden, u suprotnom metod vraća false. */
     leden: function () {
-        let temporary;
+        let temporary = true;
         this.vrednostiTemperature.forEach(element => {
             if (element > 0) {
                 temporary = false;
             }
-            else {
-                temporary = true;
-            }
+            //prvi put kad naleti na neku vrednost koja se ne uklapa, promenice u false
         });
         return temporary;
         //drugi nacin:
@@ -177,15 +175,11 @@ let vreme = {
         // });
         //return rez
     },
-    /* 7) Za dan se smatra da je tropski ukoliko nijedna temperatura izmerena tog dana nije iznosila ispod 24 stepena. Metod vraća true ukoliko je dan bio tropski, u suprotnom vraća false.*/
     tropski: function () {
-        let temporary;
+        let temporary = true;
         this.vrednostiTemperature.forEach(element => {
             if (element < 24) {
-                temporary = false;
-            }
-            else {
-                temporary = true;
+                temporary = false; //prvi put kad naleti na neku vrednost koja se ne uklapa, promenice u false
             }
         });
         return temporary;
@@ -196,11 +190,8 @@ let vreme = {
     nepovoljan: function () {
         let temporary;
         for (let i = 0; i <= this.vrednostiTemperature.length; i++) {
-            if (this.vrednostiTemperature[i + 1] - this.vrednostiTemperature[i] > 8) {
+            if (this.vrednostiTemperature[i + 1] - this.vrednostiTemperature[i] > 8) { //mogu dodati i  || (this.vrednostiTemperature[i] - this.vrednostiTemperature[i + 1] > 8) ali je svejedno da li ce ici prvi inde
                 temporary = true;
-            }
-            else {
-                temporary = false;
             }
         }
         return temporary;
@@ -208,13 +199,10 @@ let vreme = {
     /* 9) Za dan se kaže da je neuobičajen ako je bilo kiše i ispod -5 stepeni, ili bilo oblačno i iznad 25 stepeni, ili je bilo i kišovito i oblačno i sunčano. Metod vraća true ukoliko je dan bio neuobičajen, u suprotnom vraća false.
     */
     neuobicajen: function () {
-        let temporary;
+        let temporary = false;
         this.vrednostiTemperature.forEach(element => {
             if ((this.kisa == true && element < -5) || (this.oblacno == true && element > 5) || (this.kisa == true && this.oblacno == true && this.sunce == true)) {
                 temporary = true;
-            }
-            else {
-                temporary = false;
             }
         });
         return temporary;
