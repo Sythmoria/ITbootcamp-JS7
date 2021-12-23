@@ -205,3 +205,17 @@ console.log(indexSvojstvo(a, minEl));
 */
 /*ZADATAK 11: Odrediti broj parnih elemenata u celobrojnom nizu.
 */
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//zadatak 14: Promeniti znak svakom elementu celobrojnog niza.
+
+// let a = [1, 9, -6, 5, 0];
+
+let MenjaZnak = niz => {
+    niz.forEach(element => {
+        console.log(-1 * element);
+    });
+};
+
+MenjaZnak(a);
