@@ -190,7 +190,7 @@ let vreme = {
     nepovoljan: function () {
         let temporary = false;
         for (let i = 0; i <= this.vrednostiTemperature.length; i++) {
-            if (this.vrednostiTemperature[i + 1] - this.vrednostiTemperature[i] > 8) { //mogu dodati i  || (this.vrednostiTemperature[i] - this.vrednostiTemperature[i + 1] > 8) ali je svejedno da li ce ici prvi index minus drugi ili obrnuto, uslov bespotreban
+            if (Math.abs(this.vrednostiTemperature[i + 1] - this.vrednostiTemperature[i]) > 8) { //mogu dodati i  || (this.vrednostiTemperature[i] - this.vrednostiTemperature[i + 1] > 8) ali je svejedno da li ce ici prvi index minus drugi ili obrnuto, uslov bespotreban
                 temporary = true; //prvi put kad naleti na neku vrednost koja se ne uklapa, promenice u true
             }
         }
