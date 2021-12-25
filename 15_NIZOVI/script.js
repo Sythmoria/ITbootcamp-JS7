@@ -625,7 +625,12 @@ let spojitiDvaNiza = (a, b) => {
     let c = [];
     //duzina niza a je jednaka duzini niza b... treba li ispitivanje?
     for (let i = 0; i < a.length; i++) {
-        c[i] = [a[i], b[i]];
+        // c[i] = [a[i], b[i]]; -> nemoj ovo, nemoj da ga delis u vise objekata
+        c[2 * i] = a[i];
+        c[2 * i + 1] = b[i];
+        //drugi nacin
+        //c.push(a[i]);
+        //c.push(b[i]);
     }
     return c;
 }

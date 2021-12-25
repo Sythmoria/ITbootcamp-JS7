@@ -189,7 +189,7 @@ let vreme = {
     /* 8) Dan je nepovoljan ako je razlika između neka dva uzastopna merenja veća od 8 stepeni. Metod vraća true ukoliko je dan bio nepovoljan, u suprotnom vraća false.*/
     nepovoljan: function () {
         let temporary = false;
-        for (let i = 0; i <= this.vrednostiTemperature.length; i++) {
+        for (let i = 0; i < this.vrednostiTemperature.length - 1; i++) {
             if (Math.abs(this.vrednostiTemperature[i + 1] - this.vrednostiTemperature[i]) > 8) { //mogu dodati i  || (this.vrednostiTemperature[i] - this.vrednostiTemperature[i + 1] > 8) ali je svejedno da li ce ici prvi index minus drugi ili obrnuto, uslov bespotreban
                 temporary = true; //prvi put kad naleti na neku vrednost koja se ne uklapa, promenice u true
             }
