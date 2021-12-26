@@ -637,6 +637,24 @@ let spojitiDvaNiza = (a, b) => {
 
 console.log("Zadatak 24: " + spojitiDvaNiza(a1, b1));
 
+let zad24DN = (a, b) => {
+    let c = [];
+    let m = Math.min(a.length, b.lenth); //proveriti duzinu, u slucaju da duzina a nije jednaka duzini b
+    for (let i = 0; i < m; i++) {
+        c.push(a[i]);
+        c.push(b[i]);
+    }
+    for (let i = m; i < a.length; i++) { //za slucaj da je a duzi niz
+        c.push(a[i]);
+    }
+    for (let i = m; i < b.length; i++) { //za slucaj da je b duzi niz
+        c.push(b[i]);
+    }
+    return c;
+}
+let res = zad24DN(a, b);
+console.log(res);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*zadatak 25: Dati su nizovi
