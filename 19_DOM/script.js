@@ -73,6 +73,7 @@ for (let i = 0; i < linkovi.length; i++) {
     console.log(linkovi[i]);
 }
 
+//ovo su Node liste:
 //  document.querySelector(‘selector’) -> Kao parametar prima bilo koji validan CSS selektor. Kao rezultat vraća objekat – prvi HTML element koji zadovoljava dati selektor.
 // document.querySelectorAll(‘selector’) -> Kao parametar prima bilo koji validan CSS selektor. Kao rezultat vraća Node listu svih HTML elemenata koji zadovoljavaju dati selektor.
 
@@ -86,3 +87,60 @@ console.log(cont);
 
 cont = document.querySelectorAll(".container");
 console.log(cont);
+
+// Node List – niz čijim članovima možemo pistupiti forEach petljom, kao i for petljom! 
+
+for (let i = 0; i < cont.length; i++) {
+    console.log(cont[i]);
+}
+
+cont.forEach(element => {
+    console.log(element);
+});
+
+paragrafi = document.querySelectorAll("p");
+console.log(paragrafi);
+
+linkovi = document.querySelectorAll("[name='link']"); //nemoj `` da koristis unutra
+console.log(linkovi);
+
+// Sve elemente ispisati u konzoli:
+// Dohvatiti prvi paragraf na stranici. -> odradjeno iznad
+p1 = document.querySelector("p");
+console.log(p1);
+
+// Dohvatiti prvi div tag sa klasom „error“.
+let cont2 = document.querySelector(".error");
+console.log(cont2);
+
+let div1 = document.getElementsByClassName("error");
+console.log(div1[0]); //pristupa prvom
+console.log(div1[div1.length - 1]); //pristupa poslednjem
+// for petljom mozemo da mu pristupimo -> za jedan element samo index 0
+
+// Dohvatiti poslednji red u tabeli.
+cont2 = document.getElementById("tr1"); //nekad se seti da sacuvas fajl, some
+console.log(cont2);
+//ili
+cont2 = document.querySelector("table tr:last-child td:last-child");
+console.log(cont2);
+
+
+// Dohvatiti sve linkove na stranici.
+console.log(document.links); //vraca HTML Collection
+// for petljom mozemo da mu pristupimo
+//ili
+cont2 = document.getElementsByTagName("a");
+console.log(cont2);
+
+cont2 = document.querySelectorAll("a")
+cont2 = document.querySelectorAll("[href]")
+
+// Dohvatiti sve slike na stranici.
+console.log(document.images); //vraca HTML Collection
+// for petljom mozemo da mu pristupimo
+cont2 = document.getElementsByTagName("img"); //vraca jednu sliku
+cont2 = document.querySelectorAll("img");
+cont2 = document.querySelectorAll("[src]"); //vratilo je i script iz JS
+cont2 = document.querySelectorAll("img[src]");
+cont2 = document.querySelectorAll("img [src]");//izbacuje sve elemente koji se nalaze unutar img taga a da ti elementi u sebi imaju src podesen -> pazljivo sa razmacima

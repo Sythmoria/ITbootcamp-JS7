@@ -11,14 +11,38 @@
 <body>
     <div class="container">
         <p>Neki zanimljiv tekst</p>
+        <img src="https://cbaonline.org/wp-content/uploads/2020/10/heart.jpg" alt="Neka slika"
+            style="width:100px;height:100px;">
         <a href="#" name="link">Tekst prvog linka</a>
         <a href="#">Tekst drugog linka</a>
     </div>
+
+    <div class="error">Lorem ipsum dolor sit amet.</div>
+    <div class="error">Lorem ipsum dolor sit amet. i mogu ovako do sutra</div>
     <p class="container">
         <a href="#">Tekst treceg linka</a>
     </p>
     <p id="p1" name="link">Tekst prvog paragrafa</p>
     <!-- ne moze dva <p> sa id "p1" jer ce onda u console.log samo prvi da prikaze -> GRESKA -> nedefinisano ponasanje, nagadjamo koji objekat ce da se nadje u let p1 = document.getElementById("p1"); -->
+
+    <table>
+        <tr>
+            <td>Tekst</td>
+            <td>Tekst</td>
+            <td>Tekst</td>
+        </tr>
+        <tr>
+            <td>Tekst</td>
+            <td>Tekst</td>
+            <td>Tekst</td>
+        </tr>
+        <tr id="tr1">
+            <td>Tekst</td>
+            <td>Tekst</td>
+            <td>Tekst</td>
+        </tr>
+    </table>
+
     <script src="script.js"></script>
 </body>
 
