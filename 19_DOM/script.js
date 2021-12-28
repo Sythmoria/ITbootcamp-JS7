@@ -144,3 +144,280 @@ cont2 = document.querySelectorAll("img");
 cont2 = document.querySelectorAll("[src]"); //vratilo je i script iz JS
 cont2 = document.querySelectorAll("img[src]");
 cont2 = document.querySelectorAll("img [src]");//izbacuje sve elemente koji se nalaze unutar img taga a da ti elementi u sebi imaju src podesen -> pazljivo sa razmacima
+
+
+p1.innerHTML = "Promenjen tekst paragrafa"; //moze ili = ili +=
+p1.innerHTML += "Promenjen <span>tekst</span> paragrafa";
+
+let sviLinkovi = document.querySelectorAll("a");
+
+sviLinkovi.forEach(link => {
+    //HTML atributi
+    link.href = "https://www.google.com";
+    link.target = "_blank"; //dodajemo novu stvar u linkove
+
+    // CSS stilovi
+    // link.style.color = "green";
+    // link.style.textDecoration = "none"; 
+
+    //CSS stilovi - drugi nacin:
+    link.style = "color: green; text-decoration:none;" // += ne radi za style
+    // ako obrisemo ovde text-decoration:none onda link.style.textDecoration="none" nece raditi jer link.style obrise sve prethodne link.style.stagod i onda je bolje koristiti link.style.stagod nego samo link.style
+
+    //preko metode
+    link.setAttribute('name', 'link2'); //isto kao i link.name = "link2"
+    link.setAttribute("style", "color: green; text-decoration: none;") //isto kao i link.style = "..."
+});
+
+////////////////////////////////////////////////////////////////
+// selektovati sve paragrafe i u svakom od njih pridodati tekst "VAZNO!!!"
+
+//imamo i gore paragrafe -> 109 linija, p1, al nema veze
+let sviParagrafi = document.querySelectorAll("p");
+// sviParagrafi.forEach(tekst => {
+//     tekst.innerText += "VAZNO!!!";
+//     // tekst.innerHTML += "VAZNO!!!";
+// });
+
+// ////////////////////////////////////////////////////////////////
+// //svim divovima na stranici sa klasom "error" dodati po jedan naslov najvece velicine sa tekstom "Greska!"
+// // let sviError = document.getElementsByClassName("error");
+// // //HTML Collections -> ne moze forEach
+// // for (let i = 0; i < sviError.length; i++) {
+// //     sviError[i].innerHTML += "<h1>Greska!</h1>";
+// // }
+
+// let sviError2 = document.querySelectorAll("div.error"); //bez razmaka, jer nas zanima samo div sa klasom error a ne svi elementi unutar diva sa klasom error //obavezne oznake za klasu ili ID kad je tu querySelector
+// sviError2.forEach(tekst => {
+//     tekst.innerHTML += "<h1>Greska!</h1>";
+// });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 3: Neka je n broj paragrafa u datom dokumentu. U svakom i-tom paragrafu dodati broj i na kvadrat, za svako i=1,2,...n
+// let kvadratParagraf = document.querySelectorAll("p");
+// for (let i = 0; i < kvadratParagraf.length; i++) {
+//     kvadratParagraf[i].innerHTML += ` ${(i + 1) ** 2}`;
+// }
+
+// kvadratParagraf.forEach((el, ind) => {
+//     el.innerHTML += ` ${(ind + 1) ** 2}`;
+// });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 4: svim slikama dodati alternativni tekst
+
+// let altSlike = document.querySelectorAll("img");
+// altSlike.forEach(el => {
+//     el.setAttribute("alt", "123");
+// });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 5: svim paragrafima postaviti atribut style tako da budu obojeni ljubicastom bojom
+
+// sviParagrafi.forEach(el => {
+//     el.setAttribute("style", "color:purple;");
+// });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 6: svim parnim paragrafima na stranici postaviti pozadinsku zelenu boju, a svim neparnim paragrafima postaviti pozadinsku crvenu boju
+// for (let i = 0; i < sviParagrafi.length; i++) {
+//     if (i % 2 == 0) {
+//         sviParagrafi[i].style.backgroundColor = "green";
+//     }
+//     else {
+//         sviParagrafi[i].style.backgroundColor = "red"
+//     }
+// };
+
+// // //drugi nacin
+// // sviParagrafi.forEach ((par, ind) => {
+// //     if (ind % 2 == 0) {
+// //         par.style.backgroundColor = "green";
+// //     }
+// //     else {
+// //         par.style.backgroundColor = "red"
+// //     }
+// // });
+
+// // //treci nacin
+// // sviParagrafi = document.querySelectorAll("p:nth-child(even");
+// // sviParagrafi.forEach (el => {
+// //     el.style.backgroundColor = "green";
+// // });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 7: Svim linkovima na stranici postaviti padding na 5px, font size na 18px i text-decoration na none.
+// //Parnim linkovima staviti zelenu pozadinsku boju i ljubicastu boju teksta, a neparnim linkovima plavu pozadinsku boju i belu boju teksta
+
+// for (let i = 0; i < sviLinkovi.length; i++) { //moze i forEach
+//     sviLinkovi[i].style.padding = "5px";
+//     sviLinkovi[i].style.fontSize = "18px";
+//     sviLinkovi[i].style.textDecoration = "none";
+
+//     // sviLinkovi[i].style = "padding: 5px; font-size:18px; text-decoration: none;" //ali ako je bilo jos nesto sem padding, font-size, text-decoration, obrisace to dodatno sto je pre ovog for-a dodavano ---> netacan nacin pisanja
+//     if (i % 2 != 0) { //receno je "parni linkovi", a indexi idu od nule, pa zato indexi neparni da budu a length ce se pogoditi
+//         sviLinkovi[i].style.backgroundColor = "green";
+//         sviLinkovi[i].style.color = "purple";
+//         // sviLinkovi[i].style = "background-color:green; color:purple;" //ali ako je bilo jos nesto sem background-color i color, obrisace to dodatno sto je pre ovog for-a dodavano -> obrisace sviLinkovi[i].style = "padding: 5px; font-size:18px; text-decoration: none;" ---> netacan nacin pisanja
+//     }
+//     else {
+//         sviLinkovi[i].style.backgroundColor = "blue";
+//         sviLinkovi[i].style.color = "white";
+//     }
+// };
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 8: Svim slikama na stranici koja su sa ekstenzijom .png, postaviti okvir na debljinu 2px i crvenu boju
+
+// //prvi nacin
+// let slikePNG = document.querySelectorAll('img[src*=".png"]');
+// slikePNG.forEach(el => {
+//     el.style.border = "2px solid red";
+// });
+
+// //drugi nacin
+// // let sveSlike = document.querySelectorAll("img");
+// // sveSlike.forEach(slika => {
+// //     if (slika.src.indexOf(".png")>-1 || slika.src.indexOf(".PNG")>-1 ) { //index -1 znaci da ne postoji u nizu, znaci da nam bude vece
+// //         slika.style.border = "2px solid red";
+// //     };
+// //     //treci nacin
+// //     // if (slika.src.includes(".png")){
+// //     //     slika.style.border = "2px solid red";
+// //     // };
+// // });
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 9: Svakom linku na stranici promeniti target svojstvo na sledeci nacin: ako je bilo _blank, postaviti na _top, a ako je bila neka vrednost razlicita od _blank, ili uopste nije bilo postavljeno, tada postaviti na _blank 
+
+// // sviLinkovi.forEach(link => {
+// //     if (link.target === "_blank") {
+// //         link.target = "_top";
+// //     }
+// //     else {
+// //         link.target = "_blank";
+// //     }
+// // })
+
+// ////////////////////////////////////////////////////////////////
+// // ZADATAK 10: Napraviti niz od najmanje tri imena. Proci nizom i imena ispisati:
+// //- Svako u novom linku. Ako ime pocinje na slovo "S", link se otvara u novom tabu, a inace se otvara na istoj stranici.
+// //- U listi kao stavke liste. Naizmenicno stavke liste obojiti sa dve razlicite boje.
+// //- U jednoj koloni tabele. Postaviti okvir, marginu i pading celijama tabele.
+
+// // let imena = ["Marija", "Milena", "Stefan"];
+
+// // imena.forEach(ime => {
+// //     if ((ime.toUpperCase.charAt(0)) === "S") {
+// //         document.body.innerHTML += `<a href="https://www.google.com" target="_blank">${ime}</a><br>`;
+// //     }
+// //     else {
+// //         document.body.innerHTML += `<a href="https://www.google.com">${ime}</a><br>`;
+// //     }
+// // });
+
+
+// let imena = ["Stefan", "Marija", "Nikola", "Bogdan", "Vladan"];
+// imena.forEach(ime => {
+//     // if (ime.startsWith("S")) {
+//     if (ime[0] == "S") {
+//         document.body.innerHTML += `<a href="#" target="_blank">${ime}</a>`;
+//     }
+//     else {
+//         document.body.innerHTML += `<a href="#">${ime}</a>`;
+//     }
+// });
+
+// //NETACAN NACIN:
+// // document.body.innerHTML += "<ul>"; //problem je sto je browser zatvorio ovaj ul tag odmah u startu, a onda je stavke liste dodavao zasebno i poslednje </ul> nije ni registrovao -> nisu celina
+// // imena.forEach((ime, index) => {
+// //     if (index % 2 == 0) {
+// //         document.body.innerHTML += `<li style="color:red">${ime}</li>`;
+// //     }
+// //     else {
+// //         document.body.innerHTML += `<li style="color:blue">${ime}</li>`;
+// //     }
+// // });
+// // document.body.innerHTML += "</ul>";
+
+// let listaString = "<ul>";
+// imena.forEach((ime, index) => {
+//     if (index % 2 == 0) {
+//         listaString += `<li style="color:red">${ime}</li>`;
+//     }
+//     else {
+//         listaString += `<li style="color:blue">${ime}</li>`;
+//     }
+// });
+// listaString += "</ul>";
+// document.body.innerHTML += listaString;
+
+
+// let tabela = "<table>";
+// imena.forEach(tab => {
+//     tabela += `<tr><td>${tab}</td></tr>`;
+// });
+// tabela += "</table>";
+// document.body.innerHTML += tabela;
+
+
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// //NAVIGACIJA KROZ DOM STABLO
+// // obrati paznju je l' mnozina ili jednika! child ili childS!
+// // Svojstvo ----------------- Opis
+// // parentNode --------------- Roditeljski čvor.
+// // childNodes[nodenumber] --- Direktni potomak sa zadatim indeksom.
+// // firstChild --------------- Prvi direktni potomak.
+// // lastChild ---------------- Poslednji direktni potomak.
+// // nextSibling -------------- Sledeći rođak.
+// // previousSibling ---------- Prethodni rođak.
+
+// // Svojstva mogu da se lančaju:
+// // elem.parentNode ------------------------ vraća roditelja
+// // elem.parentNode.parentNode ------------- vraća dedu
+
+// // Svojstvo ------------------------------- Opis
+// // element.classList ---------------------- Lista klasa koju element poseduje
+// // Metoda --------------------------------- Opis
+// // element.classList.add(‘class’) --------- Dodaje zadatu klasu element
+// // element.classList.remove(‘class’) ------ Uklanja zadatu klasu element
+// // element.classList.toggle(‘class’) ------ Ako element ne poseduje zadatu klasu dodaje je, u suprotnom je briše
+// // element.classList.contains(‘class’) ---- Ispituje da li element ima zadatu klasu.
+
+// //Svim parnim paragrafima na stranici dodati klasu error, a svim neparnim paragrafima dodati klasu success
+// //podsetnik: let sviParagrafi = document.querySelectorAll("p");
+// //podsetnik2: zakomentarisi ovo iznad do let sviParagrafi, ne vidi se efekat
+sviParagrafi.forEach((p, i) => {
+    if (i % 2 != 0) { //parni paragrafi, ne indexi
+        p.classList.toggle('error');
+    }
+    else {
+        p.classList.toggle('success');
+    }
+});
+// Tekst u paragrafima naizmenično pisati veličinom 15px, veličinom 20px i veličinom od 25px.
+sviParagrafi.forEach((p, i) => {
+    if (i % 3 == 0) {
+        p.style.fontSize = "15px";
+    }
+    else if (i % 3 == 1) {
+        p.style.fontSize = "20px";
+    }
+    else {
+        p.style.fontSize = "25px";
+    }
+});
+
+// Svim paragrafima čiji tekst sadrži reč error, postaviti klasu na error, svim paragrafima čiji tekst sadrži reč success, postaviti klasu na success. Ostale klase paragrafa ne modifikovati.
+
+sviParagrafi.forEach(p => {
+    if (p.includes("error")) {
+        p.classList.toggle('error');
+    }
+});
+//  if(p.textContent.includes(’success’))
+// Svim paragrafima koji imaju klasu error skloniti tu klasu, a svim paragrafima koji nemaju klasu error dodati tu klasu.
+
