@@ -513,7 +513,7 @@ noviUl.replaceChild(noviUl.childNodes[1], noviUl.childNodes[0]);
 
 // Dodati još jednu stavku ul listi, pri čemu je sadržaj stavke slika.
 noviLi = document.createElement("li");
-noviLi.innerHTML += "Proba";
+noviLi.innerHTML += `<img src="https://cbaonline.org/wp-content/uploads/2020/10/heart.jpg" style="width:100px;height:100px;">`;
 noviUl.appendChild(noviLi);
 
 
