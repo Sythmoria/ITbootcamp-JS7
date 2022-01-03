@@ -145,7 +145,7 @@ users.forEach(u => {
         suma += blog.likes; //izbacice po sumu za svakog korisnika -> dva korisnika, dve sume
     });
     //e sad je gore izbacilo razlicite sume, moze dole uslov
-    if (suma > 200) {
+    if (suma > 200) { // 100 ili 200?? O.o
         console.log(u.username);
     }
 });
@@ -302,11 +302,11 @@ let merenjeTemp = array => {
         if (element.temperatura.length > maxPrvi) { //za vece ga zaustavi na prvom, tu je ispunjen uslov ; za >= bi napisao uvek zadnji
             maxPrvi = element.temperatura.length;
             ind = index;
-		//ili umesto svega ovoga console.log(array.datum);
+            //ili umesto svega ovoga console.log(array.datum);
         }
         if (element.temperatura.length == maxPrvi) { //za jednako uvek menja dok ne dodje do zadnjeg, i ostaje nam zadnji
             indexZadnji = index;
-		//ili umesto svega ovoga console.log(array.datum);
+            //ili umesto svega ovoga console.log(array.datum);
         }
     });
     if (ind == indexZadnji) {

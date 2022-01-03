@@ -193,7 +193,7 @@ let sviParagrafi = document.querySelectorAll("p");
 // });
 
 // ////////////////////////////////////////////////////////////////
-// // ZADATAK 3: Neka je n broj paragrafa u datom dokumentu. U svakom i-tom paragrafu dodati broj i na kvadrat, za svako i=1,2,...n
+// // ZADATAK 3: Neka je n broj paragrafa u datom dokumentu. U svakom i-tom paragrafu dodati broj i na kvadrat, za svako i=1,2,...n //i u postavci zadatka nije isto sto i i index
 // let kvadratParagraf = document.querySelectorAll("p");
 // for (let i = 0; i < kvadratParagraf.length; i++) {
 //     kvadratParagraf[i].innerHTML += ` ${(i + 1) ** 2}`;
@@ -221,7 +221,7 @@ let sviParagrafi = document.querySelectorAll("p");
 // ////////////////////////////////////////////////////////////////
 // // ZADATAK 6: svim parnim paragrafima na stranici postaviti pozadinsku zelenu boju, a svim neparnim paragrafima postaviti pozadinsku crvenu boju
 // for (let i = 0; i < sviParagrafi.length; i++) {
-//     if (i % 2 == 0) {
+//     if (i % 2 != 0) { //indexi idu od nula
 //         sviParagrafi[i].style.backgroundColor = "green";
 //     }
 //     else {
@@ -231,7 +231,7 @@ let sviParagrafi = document.querySelectorAll("p");
 
 // // //drugi nacin
 // // sviParagrafi.forEach ((par, ind) => {
-// //     if (ind % 2 == 0) {
+// //     if (ind % 2 != 0) { //indexi idu od nula
 // //         par.style.backgroundColor = "green";
 // //     }
 // //     else {
@@ -240,7 +240,7 @@ let sviParagrafi = document.querySelectorAll("p");
 // // });
 
 // // //treci nacin
-// // sviParagrafi = document.querySelectorAll("p:nth-child(even");
+// // sviParagrafi = document.querySelectorAll("p:nth-child(even)");
 // // sviParagrafi.forEach (el => {
 // //     el.style.backgroundColor = "green";
 // // });
@@ -387,6 +387,11 @@ let sviParagrafi = document.querySelectorAll("p");
 // // element.classList.toggle(‘class’) ------ Ako element ne poseduje zadatu klasu dodaje je, u suprotnom je briše
 // // element.classList.contains(‘class’) ---- Ispituje da li element ima zadatu klasu.
 
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// SAMOSTALNI RAD:
+
 // //Svim parnim paragrafima na stranici dodati klasu error, a svim neparnim paragrafima dodati klasu success
 // //podsetnik: let sviParagrafi = document.querySelectorAll("p");
 // //podsetnik2: zakomentarisi ovo iznad do let sviParagrafi, ne vidi se efekat
@@ -414,10 +419,102 @@ sviParagrafi.forEach((p, i) => {
 // Svim paragrafima čiji tekst sadrži reč error, postaviti klasu na error, svim paragrafima čiji tekst sadrži reč success, postaviti klasu na success. Ostale klase paragrafa ne modifikovati.
 
 sviParagrafi.forEach(p => {
-    if (p.includes("error")) {
+    if (p.textContent.includes("error")) {
+        p.classList.remove('success'); //ako ne ubacim ovo, a paragraf ima klasu success, rezultat bi bio .success.error (dakle, obe klase)
         p.classList.toggle('error');
     }
+    if (p.textContent.includes("success")) {
+        p.classList.remove('error');
+        p.classList.toggle('success');
+    }
 });
-//  if(p.textContent.includes(’success’))
+
 // Svim paragrafima koji imaju klasu error skloniti tu klasu, a svim paragrafima koji nemaju klasu error dodati tu klasu.
 
+sviParagrafi.forEach(p => {
+    p.classList.toggle('error');
+});
+
+
+
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////
+//
+// element.createElement(‘tag’) ------ Kreiranje čvora DOM stabla kao zadatog HTLM taga
+// element.removeChild(child) -------- Brisanje zadatog čvora DOM stabla
+// element.appendChild(child) -------- Dodavanje čvora(child) DOM stabla kao dete postojećeg čvora(element)
+// element.replaceChild(new, old) ---- Zamena „starog“ deteta(old) čvora DOM stable(element) „novim“ detetom(new)
+// document.write(text) -------------- Dodavanje teksta
+
+
+
+// Dodati novi div tag dokumentu.
+let noviDiv = document.createElement("div");
+document.body.appendChild(noviDiv);
+// samo da proverim pojavljuje li se:
+// noviDiv.style.backgroundColor = "yellow";
+// noviDiv.innerText += "Dodat novi div tag dokumentu, ne prikazuje se dok se ne ubaci nesto u njega";
+// noviDiv.classList.add("poslednji");
+
+
+
+
+// Formirati ul listu sa stavkama čiji je sadržaj proizvoljan tekst, i dodati je div elementu.
+
+// prvi nacin - nepotrebno sve ovo, i pogresno skroz -> innerHTML predstavlja problem za sigurnost, takodje
+// let tekst = ["Neki tekst", "Opet neki tekst", "Neki tekst, opet"];
+// // let listaString = "<ul>";
+// let listaString = "<ul>";
+// tekst.forEach(text => {
+//     listaString += `<li>${text}</li>`;
+// });
+// listaString += "</ul>";
+// // noviDiv.appendChild(listaString); -> ovo ne radi
+// noviDiv.innerHTML += listaString;
+// document.body.appendChild(noviDiv);
+
+//testiranje appendChild:
+// let noviParagraf = document.createElement("p");
+// noviParagraf.innerHTML += "Neki tamo tekst";
+// noviDiv.appendChild(noviParagraf);
+
+//1. nacin: boilerplate -> nemoj ovako, bolje je preko funkcije ako imas vise stvari da ubacujes
+// let noviUl = document.createElement("ul");
+// let noviLi = document.createElement("li");
+// noviLi.innerHTML += "Test";
+// noviUl.appendChild(noviLi);
+// noviLi = document.createElement("li");
+// noviLi.innerHTML += "Proba";
+// noviUl.appendChild(noviLi);
+// noviDiv.appendChild(noviUl);
+
+// sa funkcijom:
+let tekst = ["Neki tekst", "Opet neki tekst", "Neki tekst, opet"];
+let noviUl = document.createElement("ul");
+let noviLi;
+tekst.forEach(element => {
+    noviLi = document.createElement("li");
+    noviLi.innerHTML = element;
+    noviUl.appendChild(noviLi);
+});
+noviDiv.appendChild(noviUl);
+
+
+
+
+// Iz ul liste izbaciti prvu stavku.
+noviUl.removeChild(noviUl.childNodes[0]);
+
+// U ul listi zameniti drugu stavku liste.
+noviUl.replaceChild(noviUl.childNodes[1], noviUl.childNodes[0]);
+
+
+
+// Dodati još jednu stavku ul listi, pri čemu je sadržaj stavke slika.
+noviLi = document.createElement("li");
+noviLi.innerHTML += "Proba";
+noviUl.appendChild(noviLi);
+
+
+// document.body.insertBefore(newDiv, currentDiv);
