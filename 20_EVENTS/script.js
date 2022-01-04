@@ -2,6 +2,8 @@ console.log("Events");
 
 ////////////////////////////////////////////////////
 
+
+
 //1. dohvati HTML element na koji zelis da postavis osluskivac
 let pKlikni = document.getElementById("klikni");
 
@@ -21,7 +23,12 @@ pKlikniDva.addEventListener("dblclick", () => {
 
 ////////////////////////////////////////////////////
 
-//ubaci span koji treba da se menja i button koji ce dodavati nesto
+//// ZADATAK 3: Napraviti dugme + i dugme -. 
+// Kada se klikne na dugme +, na ekranu prikazati vrednost brojača povećanu za 1.
+// Kada se klikne na dugme -, na ekranu prikazati vrednost brojača smanjenu za 1.
+
+// ZADATAK 4: Dopuniti prethodni zadatak (ZADATAK 3) uslovima, tako da se na ekranu prikazuju samo pozitivni brojevi. Ukoliko je vrednost manja od nule, na ekranu nastaviti prikazivanje broja 0.
+
 
 // 1.
 let btnPlus = document.getElementById("plus");
@@ -35,9 +42,11 @@ btnPlus.addEventListener("click", () => {
     spanRes.innerHTML = res; // za += posle nule dodaje brojeve i samo gura dugme udesno
     if (res < 0) {
         spanRes.style.color = "red";
+        spanRes.style.display = "none"; //zadatak4, samostalni rad
     }
     else {
         spanRes.style.color = "blue";
+        spanRes.style.display = "inline"; //zadatak4, samostalni rad
     }
 });
 
@@ -49,13 +58,16 @@ btnMinus.addEventListener("click", () => {
     spanRes.innerHTML = res;
     if (res < 0) {
         spanRes.style.color = "red";
+        spanRes.style.display = "none"; //zadatak4, samostalni rad
     }
     else {
         spanRes.style.color = "blue";
+        spanRes.style.display = "inline"; //zadatak4, samostalni rad
     }
 });
 
 ////////////////////////////////////////////////////
+// ZADATAK 5: Napraviti input polje i dugme. U input polje treba da se unese ime neke osobe, a na ekranu u paragrafu da se ispiše Zdravo i ime osobe preuzeto iz input polja.
 
 let btnHello = document.getElementById("hello");
 let inputIme = document.getElementById("ime");
@@ -67,6 +79,7 @@ btnHello.addEventListener("click", () => {
 });
 
 ////////////////////////////////////////////////////
+// ZADATAK 6: Dopuniti 5. zadatak dodavanjem radio button polja gde korisnik može odabrati svoj pol (muški, ženski ili neopredeljen). Nakon duplog klika na dugme, u konzoli ispisati pol koji je osoba odabrala.
 
 // DOM
 let inputGodinaRodjenja = document.getElementById("godRodj");
@@ -101,4 +114,61 @@ btnPosalji.addEventListener("click", (e) => { //bice (e) a e se odnosi na strani
     else {
         pIspis.innerHTML += " i nije se opredelio za pol."
     }
+});
+
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+// samostalni rad
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+// ZADATAK 1: Napraviti dugme klikom na koje se u konzoli ispisuje vrednost brojača br. Brojač na početku ima vrednost 1, a svaki put kada se klikne na dugme povećati vrednost brojača za 1.
+// ZADATAK 2: Napraviti paragraf i vrednost prethodne funkcije ispisivati u paragrafu umesto u konzoli.
+let btnKonzola = document.getElementById("proba");
+let pKonzolaIspis = document.getElementById("ispisK");
+
+let pocetnaVrednost = 1;
+btnKonzola.addEventListener("click", () => {
+    pocetnaVrednost++;
+    console.log(pocetnaVrednost);
+    pKonzolaIspis.innerText = pocetnaVrednost;
+});
+
+// ZADATAK 7: Napraviti sledeću formu i rezultat računanja ispisati u paragrafu ispod nje.
+
+let inputKvadriraj = document.getElementById("kvadriraj");
+let btnIzr1 = document.getElementById("izracunaj1");
+let ispis1 = document.getElementById("ispis1");
+
+btnIzr1.addEventListener("click", (e) => {
+    e.preventDefault();
+    let kvadrirajValue = inputKvadriraj.value;
+    kvadrirajValue = parseInt(kvadrirajValue);
+    let rezultat = kvadrirajValue ** 2;
+    ispis1.innerText = `Kvadrirana vrednost iznosi ${rezultat}.`;
+});
+
+let inputPrepolovi = document.getElementById("prepolovi");
+let btnIzr2 = document.getElementById("izracunaj2");
+let ispis2 = document.getElementById("ispis2");
+
+btnIzr2.addEventListener("click", (e) => {
+    e.preventDefault();
+    let prepolovi = inputPrepolovi.value;
+    prepolovi = parseInt(prepolovi);
+    let rezultat = prepolovi / 2;
+    ispis2.innerText = `Prepolovljena vrednost iznosi iznosi ${rezultat}.`;
+});
+
+let inputPovKruga = document.getElementById("povKruga");
+let btnIzr3 = document.getElementById("izracunaj3");
+let ispis3 = document.getElementById("ispis3");
+btnIzr3.addEventListener("click", (e) => {
+    e.preventDefault();
+    let povrsina = inputPovKruga.value;
+    povrsina = parseInt(povrsina);
+    let rezultat = ((povrsina ** 2) * Math.PI).toFixed(2);
+    ispis3.innerText = `Povrsina kruga sa datim poluprecnikom iznosi ${rezultat}.`;
 });
