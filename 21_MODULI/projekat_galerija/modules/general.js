@@ -6,4 +6,5 @@ function generateImage(src) {
     return img;
 };
 
-export { generateImage };
+// export { generateImage };
+export default generateImage; //imamo jednu f-ju pa je lakse odmah ovako

@@ -1,4 +1,6 @@
-import { generateImage } from "./general.js";
+// import { generateImage } from "./general.js";
+import generateImage from "./general.js"; //ovako jer imamo default
+//moze da se ukuca samo generateImage pa Enter
 
 function generateTable(parent) {
     let table = document.createElement("table");
@@ -13,7 +15,7 @@ function generateTableRow(parent) {
     return tr;
 };
 
-function generateTableItem(parent, src) {
+function generateItem(parent, src) {
     let td = document.createElement("td");
     let img = generateImage(src);
     td.appendChild(img);
@@ -21,4 +23,4 @@ function generateTableItem(parent, src) {
     return td;
 }
 
-export { generateTable, generateTableRow, generateTableItem };
+export { generateTable, generateTableRow, generateItem };
