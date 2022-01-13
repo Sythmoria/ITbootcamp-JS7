@@ -4,7 +4,7 @@
 // U klasi Film, dodati po tri setera za sva polja, s tim da se u seteru za godinu izdanja proverava da li je godina veća od 1800. Ukoliko godina izdanja nije veća od 1800, godinu setovati na 1800.
 
 
-class Film {
+export class Film {
     constructor(a, b, c) {
         this.naslov = a;
         this.reziser = b;
@@ -62,4 +62,4 @@ class Film {
     }
 }
 
-export default Film;
+// export default Film;
