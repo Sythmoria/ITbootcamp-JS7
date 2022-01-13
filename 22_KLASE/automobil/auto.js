@@ -59,7 +59,7 @@ class Auto {
     set marka(m) { //isti naziv kao naziv polja samo bez _
         let m1 = m.trim(); //da odbaci space sa pocetka, ako je kucan space
         if (m1.length > 0) {
-            this._marka = m1;
+            this._marka = m1; //e sad kad je proslo validaciju, seter ce postaviti vrednost
         }
         else {
             this._marka = "Auto";
