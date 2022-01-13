@@ -5,13 +5,11 @@
 
 
 export class Film {
-    constructor(a, b, c) {
+    constructor(a, b, c, d) { //d je niz ocena
         this.naslov = a;
         this.reziser = b;
         this.godinaIzdanja = c;
-    }
-    stampaj() {
-        console.log(this.naslov);
+        this.ocene = d;
     }
 
     set naslov(a) {
@@ -46,7 +44,7 @@ export class Film {
 
     set godinaIzdanja(c) {
         //ukloni decimalne zapise:
-        if (Math.round(c) != c) {
+        if (Math.floor(c) != c) {
             c = Math.floor(c);
         }
         //provera:
@@ -59,6 +57,24 @@ export class Film {
     }
     get godinaIzdanja() {
         return this._godinaIzdanja;
+    }
+    // OCENE
+    set ocene(d) {
+        this._ocene = d;
+    }
+    get ocene() {
+        return this._ocene;
+    }
+
+    //DODAVANJE JEDNE OCENE
+    dodajOcenu(novaOcena) {
+        this._ocene.push(novaOcena); //ne treba nam seter i geter
+    }
+
+    //OSTALE METODE
+    stampaj() {
+        // console.log(this.naslov);
+        console.log(this);
     }
 }
 
