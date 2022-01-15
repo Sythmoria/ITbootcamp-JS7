@@ -13,7 +13,7 @@
 // Napraviti funkciju najmanjaOcenaNajboljeg kojoj se prosleđuje niz filmova a ona određuje najbolji film i ispisuje njegovu najslabiju ocenu.
 // Napisati funkciju najmanjaOcena kojoj se prosleđuje niz filmova, a koja vraća koja je najmanja ocena koju je bilo koji film dobio.
 // Napisati funkciju najcescaOcena kojoj se prosleđuje niz ocena, a ona vraća ocenu koju su filmovi najčešće dobijali. 
-// Napraviti funkciju iznadOcene kojoj se prosleđuje ocena i niz filmova, a ona vraća niz onih filmova koji su bolje ocenjeni od prosleđene ocene.
+// Napraviti funkciju iznadOcene kojoj se prosleđuje ocena i niz filmova, a ona vraća niz onih filmova koji su bolje ocenjeni (veća im je prosečna ocena) od prosleđene ocene.
 // Napisati funkciju iznadOceneNoviji kojoj se prosleđuje ocena i niz filmova  a koja treba da na ekranu da ispiše sve podatke o najnovijem filmu koji zadovoljava prosleđenu ocenu
 
 
@@ -93,12 +93,18 @@ export class Film {
     }
 
     // Napraviti metod prosek koji vraća prosečnu ocenu 
-    prosecnaOcena() {
+    prosek() {
         let suma = 0;
         this.ocene.forEach(element => {
             suma += element;
         });
-        return (this.ocene.length != 0) ? suma / this.ocene.length : 0;
+        if ((this.ocene.length != 0)) {
+            let prosek = suma / this.ocene.length;
+            return prosek = +(Math.round(prosek + "e+2") + "e-2"); //zaokruzivanje na max dve decimale ( nula decimala, jedna decimala, ili MAX dve)
+        }
+        else {
+            return 0;
+        }
     }
 }
 
