@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- ne koristi form nego div jer zajebava kada hoces da stavis keyup Enter ono Enter racuna kao reset i nece da se postavi kako treba -->
+        <legend>
+            <h1>Moj podsetnik</h1>
+        </legend>
+        <div id="lista"></div>
+        <input type="text" id="newTask" class="success" placeholder="Unesite obavezu">
+        <small id="error"></small>
+        <br>
+        <!-- <input type="submit" value="Dodaj" id="addNewLi"> -->
+        <input type="radio" name="dodavanje" id="pocetak" required>
+        <label for="pocetak">Dodaj na pocetak</label>
+        <br>
+        <input type="radio" name="dodavanje" id="kraj">
+        <label for="kraj">Dodaj na kraj</label>
+        <br>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

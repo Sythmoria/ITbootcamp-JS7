@@ -1,0 +1,90 @@
+*{
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url(https://images.pexels.com/photos/7213439/pexels-photo-7213439.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: rgb(199, 197, 197); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* bilo mi je form umesto div */
+div.container{ 
+    background-color: ivory;
+    /* max-width: 400px; */
+    padding: 10px;
+    box-shadow: 0.5em 0.5em 0.5em -0.4em #6b6b6b;
+       /* x offset, y offset, blur radius, spread radius */
+    border: none;
+    border-radius: 15px;
+}
+h1{
+    color: rgb(1, 160, 160);
+    margin-bottom: 10px;
+}
+
+ul li {
+    background-color: rgb(161, 243, 216);
+    /* border: 1px rgb(3, 107, 107) dotted; */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 3px;
+    margin-bottom: 5px;
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+ul li:hover {
+    background-color: rgb(44, 114, 114);
+    color: ivory;
+}
+
+li:last-child{
+    margin-bottom: 25px;
+}
+
+/* .lineThrough { 
+    text-decoration: line-through;
+} */
+
+input[type=text]{
+    display: block;
+    width: 100%;
+    padding: 6px 3px;
+    margin-bottom: 5px;
+}
+
+input[type=text].success{
+    border: grey solid 1px;
+}
+
+input[type=text].error{
+    border: red solid 2px;
+}
+
+input[type=submit]{
+    background-color: rgb(245, 255, 157);
+    border:rgb(245, 255, 157) solid 1px;
+    border-radius: 10px;
+    display: block;
+    padding: 6px 3px;
+    width: 100%;
+    box-shadow: 0 0.5em 0.5em -0.4em #6b6b6b;
+       /* x offset, y offset, blur radius, spread radius */
+    margin-bottom: 20px;
+}
+
+#error{
+    color: red;
+    margin-bottom: 5px;
+    /* visibility: hidden; */
+}
