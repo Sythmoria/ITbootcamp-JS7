@@ -31,9 +31,9 @@ newListItem.addEventListener("keyup", (e) => { //promenili smo sa btnSubmit na n
     if (e.keyCode == 13) {
         let unosValue = newListItem.value; //samo PAMTI vrednost value, ne moze da izmeni input polje , zato ne moze unosValue = '';
         let unosValue1 = unosValue.trim(); //da odbaci space sa pocetka i kraja, ako je kucan space
-        unosValue1 = unosValue1.replaceAll(' ', ' ');
+        unosValue1 = unosValue1.replaceAll(' ', ' '); //ne mora ovo jer HTML nam radi tako da space, koliko god ih ima, racuna kao jedno polje
         if (dodajKraj.checked == true) {
-            if (unosValue == '' || unosValue == null || unosValue1.length == 0) {
+            if (unosValue == '' || unosValue == null) {
                 ispisGreska.innerText = `Unesite tekst u polje.`;
                 //ili alert("Morate uneti tekst zadatka")
                 newListItem.classList.add("error");
@@ -53,7 +53,7 @@ newListItem.addEventListener("keyup", (e) => { //promenili smo sa btnSubmit na n
             }
         }
         else if (dodajPocetak.checked == true) {
-            if (unosValue == '' || unosValue == null || unosValue1.length == 0) {
+            if (unosValue == '' || unosValue == null) {
                 ispisGreska.innerText = `Unesite tekst u polje.`;
                 //ili alert("Morate uneti tekst zadatka")
                 newListItem.classList.add("error");
