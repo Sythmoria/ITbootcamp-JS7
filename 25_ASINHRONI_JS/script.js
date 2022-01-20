@@ -292,9 +292,9 @@ let getUsers = (resolve, reject) => {
             reject("Doslo je do greske")
         }
     });
-    // request.open('GET', 'https://jsonplaceholder.typicode.com/users');
-    //da napravimo gresku namerno:
     request.open('GET', 'https://jsonplaceholder.typicode.com/users');
+    //da napravimo gresku namerno:
+    // request.open('GET', 'https://jsonplaceholder.typicode.com/usersss');
     request.send();
 }
 
@@ -392,4 +392,30 @@ let prosecnaVisinaSportista = (niz) => {
 getSportisti(prosecnaVisinaSportista, ispisPorukeStranica);
 
 // Ispisati ime i prezime sportiste sa najmanje transfera (bilo kog ako ima više takvih sportista).
+
+let najmanjeTransfera = (niz) => {
+    let min = niz[0].timovi.length;
+    let index = 0;
+    for (let i = 1; i < niz.length; i++) {
+        if (niz[i].timovi.length < min) {
+            min = niz[i].timovi.length;
+            index = i;
+        }
+    }
+    console.log("\n\tIme i prezime sportiste sa najmanje transfera: ", niz[index].imePrezime);
+}
+getSportisti(najmanjeTransfera, ispisPorukeStranica);
+
 // Ispisati imena i prezimena svih sportista koji su igrali za „Lakers“-e.
+
+let igraciLakersa = (niz) => {
+    let imeTima = "Lakers";
+    niz.forEach(element => {
+        element.timovi.forEach(el => {
+            if (el === imeTima) {
+                console.log("\n\tIme i prezime sportiste koji je igrao u : ", element.imePrezime);
+            }
+        });
+    });
+}
+getSportisti(igraciLakersa, ispisPorukeStranica);
