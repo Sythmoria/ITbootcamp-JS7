@@ -1,0 +1,45 @@
+[
+    {
+        "imePrezime": "Pera Peric",
+        "visina": 174,
+        "timovi": [
+            "Tim1",
+            "Tim2",
+            "Tim3",
+            "Lakers"
+        ]
+    },
+    {
+        "imePrezime": "Marko Maric",
+        "visina": 185,
+        "timovi": [
+            "Tim4",
+            "Lakers"
+        ]
+    },
+    {
+        "imePrezime": "Toma Tomic",
+        "visina": 190,
+        "timovi": [
+            "Tim1",
+            "Tim4"
+        ]
+    },
+    {
+        "imePrezime": "Djura Djuric",
+        "visina": 191,
+        "timovi": [
+            "Tim3"
+        ]
+    },
+    {
+        "imePrezime": "Jovan Jovic",
+        "visina": 200,
+        "timovi": [
+            "Tim1",
+            "Tim2",
+            "Tim3",
+            "Tim4"
+        ]
+    }
+]

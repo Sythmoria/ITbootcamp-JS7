@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 5px;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result"></div>
+    <br>
+    <button id="btn1">Klik za ispis poruke</button>
+    <button id="btn2">Klik za prekid ispisa</button>
+    <hr>
+    <button id="btn3">Prikazi vreme</button>
+    <button id="btn4">Prekini prikaz</button>
+    <hr>
+    <p>Primer: Klikom na dugme „Start count!“, počinje odbrojavanje: Ispisuju se redom brojevi 1, 2, 3, ... svake
+        sekunde. Klikom na dugme „Pause count!“ pauzira se odbrojavanje.</p>
+    <hr>
+    <div id="ispis"></div>
+
+    <button id="start">Start count!</button>
+    <input type="text" name="" id="ispisCount">
+    <button id="pause">Pause count!</button>
+    <button id="stop">Stop count!</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
