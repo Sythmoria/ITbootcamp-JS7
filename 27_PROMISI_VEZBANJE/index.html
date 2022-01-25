@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKEA's promises xD</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tabela {
+            border: grey 2px dotted;
+            border-radius: 5px;
+            /* padding: 5px; */
+            background-color: rgb(194, 194, 194);
+            margin: 10px 5px;
+        }
+
+        .tabela tr {
+            padding: 5px;
+        }
+
+        .tabela td:nth-child(odd) {
+            background-color: grey;
+        }
+
+        .tabela tr:last-child {
+            background-color: indianred;
+        }
+
+        .tabela tr:last-child td:last-child {
+            background-color: indianred;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="order">
+        <form action="">
+            <label for="capacity">Kapacitet kamiona: </label>
+            <input type="number" name="capacity" id="capacity">
+            <br>
+            <input type="submit" value="Proveri!">
+
+        </form>
+    </div>
+    <div id="order2">
+        <form action="">
+            <label for="deoTeksta">Uneti naziv proizvoda, ili deo naziva proizvoda: </label>
+            <input type="text" name="deoTeksta" id="deoTeksta">
+            <br>
+            <label for="cena1">Uneti min vrednost cene: </label>
+            <input type="number" name="cena1" id="cena1">
+            <br>
+            <label for="cena2">Uneti max vrednost cene: </label>
+            <input type="number" name="cena2" id="cena2">
+            <br>
+            <input type="submit" value="Proveri!">
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

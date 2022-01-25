@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baze Podataka</title>
+</head>
+
+<body>
+
+
+    <!-- //bilo je script type="module", izbacili smo
+    // Import the functions you need from the SDKs you need
+    //ugasicemo import i dodacemo script
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
+    // The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script> //pre nije bilo ovog script ovde
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAv_xaoANKA48gSC3Ml3ROkTDGNJoS7aBI",
+            authDomain: "itboocamp-js7-msz.firebaseapp.com",
+            projectId: "itboocamp-js7-msz",
+            storageBucket: "itboocamp-js7-msz.appspot.com",
+            messagingSenderId: "521239618165",
+            appId: "1:521239618165:web:7c14f8ee6f2416fc130e3c",
+            measurementId: "G-W4SCJDTEQH"
+        };
+
+        // Initialize Firebase
+        //ovo cemo ugasiti:
+        // const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        //i dodajemo:
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+
+    </script>
+    <!-- <script src="script.js"></script> -->
+    <script src="script2.js"></script>
+</body>
+
+</html>

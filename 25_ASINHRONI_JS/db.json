@@ -1,0 +1,25 @@
+{
+    "sportisti": [
+        {
+            "imePrezime": "Vlade Divac",
+            "visina": 2.12,
+            "timovi": [
+                "Partizan",
+                "Lakers",
+                "Charlote",
+                "Sacramento"
+            ]
+        },
+        {
+            "imePrezime": "Predrag Stojakovic",
+            "visina": 2.06,
+            "timovi": [
+                "Sacramento",
+                "Toronto",
+                "Dalas",
+                "Indiana",
+                "New Orleans"
+            ]
+        }
+    ]
+}
