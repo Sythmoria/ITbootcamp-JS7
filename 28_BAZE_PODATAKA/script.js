@@ -91,7 +91,7 @@ console.log(doc2);
 db.collection('...').doc('...')
 kod dokumenata imamo sledece operacije:
     CRUD (create, read, update, delete)
-    Create :  doc.set(...)
+    Create :  doc.set(...) a postoji i add metoda, ovo nije jedini nacin dodavanja
     Read   :  doc.get(...)
     Update :  doc.update(...)
     Delete :  doc.delete(...)
@@ -209,3 +209,33 @@ db.collection('customers')
     });
 
 console.log("Test poruka -> prati redosled asinhronih poziva");
+
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+// drugi nacin za dodavanje dokumenta -> ADD metoda
+
+db.collection('tasks')
+    .add({
+        title: "Vezba za projekat",
+        description: "Vezbanja JS",
+        startDate: firebase.firestore.Timestamp.fromDate(new Date("2022-01-29")),
+        dueDate: null,
+        priority: true
+    })
+    .then(() => {
+        console.log(`Uspesno dodat zadatak u kolekciju tasks.`);
+    })
+    .catch(err => {
+        console.log(`Desila se greska: ${err}.`);
+    });
+
+//kod ADD metode nemamo mogucnost da odredimo ime dokumentu, i ADD je zgodno kad nam je nebitan id dokumenta
+// db.collection('...').add() je isto sto i db.collection('...').doc().set() tj. add metoda dodaje novi dokument sa random generisanim ID-em
+// ako hocemo da sami unesemo ID, onda mora SET metoda:
+// db.collection('...').doc(id).set() -> dodaje novi dokument sa zadatim id-em
