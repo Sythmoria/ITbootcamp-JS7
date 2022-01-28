@@ -177,7 +177,7 @@ db.collection('customers')
 db.collection('customers')
     // 1.7 zadatak
     // Iz kolekcije customers, pročitati sve klijente koji imaju 22, 25 ili 28 godina. -> array napravi sa ove tri vrednosti
-    // .where("age", "in", [22, 25, 28])
+    .where("age", "in", [22, 25, 28])
     // 1.6 zadatak
     // Iz kolekcije customers, pročitati sve klijente koji imaju adresu u Nišu ili Beogradu
     // .where("addresses", "array-contains-any", ["Nis", "Beograd"])
@@ -234,16 +234,23 @@ db.collection('customers')
 
 let datum = new Date();
 let tekucaGodina = datum.getFullYear();
-let startYear = firebase.firestore.Timestamp.fromDate(new Date(tekucaGodina + "-01-01"));
-let endYear = firebase.firestore.Timestamp.fromDate(new Date(tekucaGodina + "-12-31"));
-console.log(endYear);
+// let startYear = firebase.firestore.Timestamp.fromDate(new Date(tekucaGodina + "-01-01"));
+let date1 = new Date(tekucaGodina, 0, 1); //prvi januar tekuce godine
+let date1Timestamp = firebase.firestore.Timestamp.fromDate(date1);
+// let endYear = firebase.firestore.Timestamp.fromDate(new Date(tekucaGodina + "-12-31"));
+let date2 = new Date(tekucaGodina + 1, 0, 1);
+let date2Timestamp = firebase.firestore.Timestamp.fromDate(date2);
+// console.log(endYear);
+let dateNow = firebase.firestore.Timestamp.fromDate(datum);
 
 db.collection('tasks')
     // 1.5 Iz kolekcije tasks, pročitati sve zadatke, i koji tek treba da počnu
+    .where("startDate", ">", dateNow)
     // 1.4 Iz kolekcije tasks, pročitati sve zadatke, i koji su završeni
+    // .where("dueDate", "<=", dateNow)
     // 1.3 Iz kolekcije tasks, pročitati sve zadatke, i koji treba da se izvrše u tekućoj godini
-    .where("dueDate", ">=", startYear)
-    .where("dueDate", "<=", endYear)
+    // .where("dueDate", ">=", date1Timestamp)
+    // .where("dueDate", "<", date2Timestamp)
     // 1.2 Iz kolekcije tasks, pročitati sve zadatke, i koji su prioritetni
     // .where("priority", "==", true)
     // 1.1 Iz kolekcije tasks, pročitati sve zadatke, sortirane po nazivu.
@@ -279,3 +286,66 @@ db.collection('tasks')
 - Prikazati sve informacije o najbolje rangiranom filmu.
 - Prikazati sve informacije o najslabije rangiranoj drami.
 */
+
+let inputCentury = 21;
+let centuryStartYear = (inputCentury - 1) * 100 + 1;
+let centuryEndYear = inputCentury * 100;
+
+
+db.collection('movies')
+    // 3. Prikazati sve informacije o najslabije rangiranoj drami.
+    // .orderBy("Rating", "asc")
+    // .where("Genres", "array-contains", "drama")
+    // .limit(1)
+    // 2. Prikazati sve informacije o najbolje rangiranom filmu.
+    // .orderBy("Rating", "desc")
+    // .limit(1)
+    // 1.4 Iz kolekcije movies, pročitati sve filmove koji su izašli u 21. veku
+    .where("Release_year", ">=", centuryStartYear)
+    .where("Release_year", "<=", centuryEndYear)
+    // 1.3 Iz kolekcije movies, pročitati sve filmove kojima je žanr komedija, tragedija ili drama 
+    // .where("Genres", "array-contains-any", ["comedy", "tragedy", "drama"])
+    // 1.2 Iz kolekcije movies, pročitati sve filmove Čija je ocena između 5 i 10
+    // .where("Rating", ">=", 5)
+    // .where("Rating", "<=", 10)
+    // 1.1 Iz kolekcije movies, pročitati sve filmove koje je režirao ***
+    // .where("Director.name", "==", "Bong")
+    // .where("Director.surname", "==", "Joon-ho")
+    .get()
+    .then(snapshot => {
+        //nazvali smo ga snapshot jer predstavlja samo sliku trenutnog stanja
+        // console.log(snapshot); -> pogledaj da li je empty true ili false -> osim empty, tu imamo i docs (niz dokumenata), size, itd.
+        if (!snapshot.empty) {
+            let allDocs = snapshot.docs;
+            allDocs.forEach(doc => {
+                //znamo da dokumenti postoje, tako da ce doc.exists uvek biti true, tako da nam samo treba da pozovemo data()
+                //za citav sadrzaj:
+                console.log(doc.data());
+            });
+        }
+        else {
+            console.log(`Nema dokumenata u kolekciji ; kolekcija je prazna.`);
+        }
+    })
+    .catch(err => {
+        console.log(`Nemoguce dohvatiti dokumenta iz kolekcije: ${err}.`);
+    });
+
+// end
+
+
+function collectionSize(collectionName) {
+    db.collection(collectionName).get().then(snapshot => {
+        if (!snapshot.empty) {
+            let length = snapshot.size;
+            console.log(length);
+        }
+        else {
+            console.log(`Nema dokumenata u kolekciji ; kolekcija je prazna.`);
+        }
+    })
+        .catch(err => {
+            console.log(`Nemoguce dohvatiti dokumenta iz kolekcije: ${err}.`);
+        })
+}
+collectionSize("movies");
