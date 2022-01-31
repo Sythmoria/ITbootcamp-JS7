@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+text-align: center;
+}
+
+.btn{
+    background-color: purple;
+    color: white;
+    border: 0;
+}
