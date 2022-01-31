@@ -49,5 +49,22 @@ export class Chatroom {
         return response; //returning Promise, and we can add then() and catch() for this response   
     }
 
-}
+    //Method that reacts to changes
+    getChats(callback) {
+        this.chats.onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                // Following changes: -> testing snapshot
+                // console.log(change.type);
+                // if (change.type == "added") {
+                //     console.log("A change has occurred in the dabatase.");
+                // }
 
+                //Write the documents that are added to the database
+                if (change.type == "added") {
+                    callback(change.doc.data());
+                    //we're sending data to callback, to choose how we'll print this
+                }
+            });
+        });
+    }
+}

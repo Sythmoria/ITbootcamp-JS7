@@ -8,6 +8,11 @@ chatroom1.room = "general";
 console.log(chatroom1.room);
 
 let chatroom2 = new Chatroom("general", "Michelle");
-chatroom2.addChat("Wednesday HR training") //it returned Promise, so we can add .then() and .catch()
-    .then(() => console.log("Chat added successfully."))
-    .catch(error => console.log(`Error has occurred: ${error}`))
+// chatroom2.addChat("Wednesday HR training") //it returned Promise, so we can add .then() and .catch()
+//     .then(() => console.log("Chat added successfully."))
+//     .catch(error => console.log(`Error has occurred: ${error}`))
+
+// method getChanges
+chatroom2.getChats(d => {
+    console.log(d);
+})
