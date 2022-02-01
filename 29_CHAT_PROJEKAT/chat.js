@@ -52,7 +52,7 @@ export class Chatroom {
     //Method that reacts to changes
     getChats(callback) {
         this.chats
-            .where("room", "==", "this.room")
+            .where("room", "==", this.room)
             .orderBy("createdAt")
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {

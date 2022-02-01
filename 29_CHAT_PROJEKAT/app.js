@@ -13,11 +13,16 @@ let chatroom2 = new Chatroom("general", "Michelle");
 //     .then(() => console.log("Chat added successfully."))
 //     .catch(error => console.log(`Error has occurred: ${error}`))
 
-// method getChanges
+// method getChanges -> writing the changes in console
 chatroom2.getChats(d => {
     console.log(d);
 })
 
 let containerChatList = document.querySelector('ul');
-let chat = new ChatUI(containerChatList);
-console.log(chat._list)
+let chat1 = new ChatUI(containerChatList);
+// console.log(chat1._list);
+
+// printing the text messages on the page
+chatroom2.getChats(d => {
+    chat1.templateLI(d);
+});
