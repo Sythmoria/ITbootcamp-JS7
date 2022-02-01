@@ -11,35 +11,37 @@
 
 <body>
 
-    <!-- Title -->
-    <header>
-        <h1>ITBootcamp Chat</h1>
-        <h2>Choose a chatroom</h2>
-    </header>
-    <!-- 4 Buttons for changing the chatroom -->
-    <nav>
-        <button id="btnGeneral" class="btn">#general</button>
-        <button id="btnJS" class="btn">#js</button>
-        <button id="btnHomework" class="btn">#homework</button>
-        <button id="btnTests" class="btn">#tests</button>
-    </nav>
-    <!-- Section for text messages output -->
-    <section>
-        <ul>
-            <!-- Messages go here -->
-        </ul>
-        <!-- we can use either UL LI or DIV -->
-    </section>
-    <!-- Input field for sending text messages -->
-    <form id="formInputMessage">
-        <input type="text" placeholder="Your message" id="inputMessage">
-        <input type="submit" value="Send" id="btnSend" class="btn">
-    </form>
-    <!-- Input field for updating the username -->
-    <form id="formUsername">
-        <input type="text" placeholder="Update username" id="inputUsername">
-        <input type="submit" value="Update" id="btnUpdate" class="btn">
-    </form>
+    <div class="container">
+        <!-- Title -->
+        <header>
+            <h1>ITBootcamp Chat</h1>
+            <h2>Choose a chatroom</h2>
+        </header>
+        <!-- 4 Buttons for changing the chatroom -->
+        <nav>
+            <button id="btnGeneral" class="btn">#general</button>
+            <button id="btnJS" class="btn">#js</button>
+            <button id="btnHomework" class="btn">#homework</button>
+            <button id="btnTests" class="btn">#tests</button>
+        </nav>
+        <!-- Section for text messages output -->
+        <section class="chatArea">
+            <ul>
+                <!-- Messages go here -->
+            </ul>
+            <!-- we can use either UL LI or DIV -->
+        </section>
+        <!-- Input field for sending text messages -->
+        <form id="formInputMessage">
+            <input type="text" placeholder="Your message" id="inputMessage">
+            <input type="submit" value="Send" id="btnSend" class="btn">
+        </form>
+        <!-- Input field for updating the username -->
+        <form id="formUsername">
+            <input type="text" placeholder="Update username" id="inputUsername">
+            <input type="submit" value="Update" id="btnUpdate" class="btn">
+        </form>
+    </div>
 
     <!-- The end, scripts are below -->
 
@@ -63,7 +65,7 @@
         let db = firebase.firestore();
     </script>
     <!-- <script src="chat.js"></script> -->
-    <script src="script.js" type="module"></script>
+    <script src="app.js" type="module"></script>
 </body>
 
 </html>
