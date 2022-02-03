@@ -18,19 +18,37 @@ export class Chatroom {
     }
     // get and set for USERNAME
     set username(un) {
-        un = un.trim();
-        if (un.length > 0) {
-            // let usernameRegex = /^[a-zA-Z0-9]+$/; //^ is added to ensure username starts with a letter, and $ is added so that we could check the END of the string ; /^[a-zA-Z0-9\s'-]+$/ -> \s is for white spaces -> check this out
-            // usernameRegex(un) -> if it's true, it's valis
-            // this._username = validUsername;
+        // this._username = un.trim();
+        if (this.validateUsername(un) === true) {
             this._username = un;
         }
         else {
-            this._username = "Anonymous";
+            alert("Please enter a valid username!");
         }
     }
     get username() {
         return this._username;
+    }
+
+    // validation for the username
+    validateUsername(a) {
+        a = a.trim();
+        if (a.length >= 2 && a.length <= 10 && /^[a-zA-Z0-9\s'-]+$/.test(a) == true) {
+            //  /^[a-zA-Z0-9\s'-]+$/; //^ is added to ensure username starts with a letter, and $ is added so that we could check the END of the string ; \s is for white spaces -> if it's true, it's valid
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    updateUsername(newUsername) {
+        if (this.validateUsername(newUsername) === true) {
+            this.username = newUsername;
+        }
+        else {
+            alert("Please enter a valid username!");
+        }
     }
 
     // async method
