@@ -1,0 +1,17 @@
+// Demonstration: setting values in Local Storage
+// localStorage.setItem("keyName", 5);
+// localStorage.setItem("keyName", 6);
+// localStorage.setItem("keyName", "Testing");
+// localStorage.setItem("x", 7);
+// localStorage.setItem("y", 10);
+// // in browser > inspect Element > Application > Local Storage > right click on the address to Clear, or right click on specific values to delete them
+
+// // Demonstration: getting values from Local Storage
+// let z = localStorage.x + localStorage.y; //it will add them as strings
+// console.log(z);
+// if (localStorage.x) {
+//     console.log("X exists");
+// }
+// else {
+//     console.log("X doesn't exist");
+// }

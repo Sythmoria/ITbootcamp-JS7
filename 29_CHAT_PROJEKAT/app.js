@@ -7,37 +7,41 @@ let formInputMessage = document.querySelector('#formInputMessage');
 let inputMessage = document.querySelector('#inputMessage');
 let formUsername = document.querySelector('#formUsername');
 let inputUsername = document.querySelector('#inputUsername');
+let navigationRooms = document.querySelector('nav');
+let submitColour = document.querySelector('#submitColour');
+let colour = document.querySelector('#colour');
+let chatArea = document.querySelector('#chatArea')
 
 // Objects classes
-let chatroom = new Chatroom("js", "Michelle");
+// let chatroom = new Chatroom("js", "Michelle");
 let chatUI = new ChatUI(containerChatList);
 
-// Demonstration: setting values in Local Storage
-localStorage.setItem("keyName", 5);
-localStorage.setItem("keyName", 6);
-localStorage.setItem("keyName", "Testing");
-localStorage.setItem("x", 7);
-localStorage.setItem("y", 10);
-// in browser > inspect Element > Application > Local Storage > right click on the address to Clear, or right click on specific values to delete them
-
-// Demonstration: getting values from Local Storage
-let z = localStorage.x + localStorage.y; //it will add them as strings
-console.log(z);
-if (localStorage.x) {
-    console.log("X exists");
-}
-else {
-    console.log("X doesn't exist");
+function checkUsername() {
+    if (localStorage.username) {
+        return localStorage.username;
+    }
+    else {
+        return "Anonymous";
+    }
 }
 
-// chatroom.addChat("Wednesday HR training") //it returned Promise, so we can add .then() and .catch()
-//     .then(() => console.log("Chat added successfully."))
-//     .catch(error => console.log(`Error has occurred: ${error}`))
+function checkRoom() {
+    if (localStorage.room) {
+        return localStorage.room;
+    }
+    else {
+        return "general";
+    }
+}
 
-// method getChanges -> writing the changes in console
-chatroom.getChats(d => {
-    console.log(d);
-})
+let chatroom = new Chatroom(checkRoom(), checkUsername());
+
+// option 2:
+// let username = "Anonymous"
+// if (localStorage.username) {
+//     username = localStorage.username;
+// }
+// let chatroom = new Chatroom("js", username);
 
 // printing the text messages on the page
 chatroom.getChats(d => {
@@ -64,13 +68,39 @@ formUsername.addEventListener('submit', e => {
     e.preventDefault();
     let newUsername = inputUsername.value;
     // console.log(newUsername); //testing if the value is good
-    // chatroom.updateUsername(newUsername);
-    if (chatroom.validateUsername(newUsername) === true) {
-        console.log(`Valid username`);
-        chatroom.username = newUsername;
-    }
-    else {
-        alert("Please enter a valid username!");
-    }
+    chatroom.updateUsername(newUsername);
     formUsername.reset();
 });
+
+// checking what room is clicked on:
+navigationRooms.addEventListener('click', e => {
+    // console.log(e.target);
+    // console.log(e.target.id);
+    if (e.target.tagName == "BUTTON") {
+        // e.target.remove(); //we use this only if we want to remove the buttons
+        // 1. clear content
+        chatUI.clearContent();
+        // 2. change room
+        chatroom.updateRoom(e.target.id);
+        // 3. show chats
+        chatroom.getChats(data => {
+            chatUI.templateLI(data);
+        });
+        localStorage.setItem("room", e.target.id);
+    }
+});
+
+// checking the selected colours:
+submitColour.addEventListener('click', e => {
+    e.preventDefault();
+    let colourValue = colour.value;
+    setTimeout(() => {
+        localStorage.setItem(`colour`, `${colourValue}`);
+        chatArea.style.backgroundColor = `10 px solid ${localStorage.colour}`;
+    }, 500);
+});
+
+// let stb = (a) => {
+//     a.scrollTop = a.scrollHeight;
+// };
+

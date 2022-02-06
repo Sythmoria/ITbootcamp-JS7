@@ -30,12 +30,35 @@ export class ChatUI {
     // adding a method for creating list items and print list items on the page 
     templateLI(docData) {
         let date = docData.createdAt.toDate();
-        let htmlLI =
-            `<li>
-        ${docData.username} : ${docData.message}
+        if (docData.username == localStorage.username) {
+            let htmlLI =
+                `<li class="goRight">
+        ${docData.username} 
+        <br>
+        ${docData.message}
         <br>
         ${this.formatDate(date)}
+        <br>
+        <i class="fa fa-trash-o" style="font-size:24px"></i>
         </li>`;
-        this.list.innerHTML += htmlLI;
+            this.list.innerHTML += htmlLI;
+        }
+        else {
+            let htmlLI =
+                `<li class="goLeft">
+            ${docData.username} 
+            <br>
+            ${docData.message}
+            <br>
+        ${this.formatDate(date)}
+        <br>
+        <i class="fa fa-trash-o" style="font-size:24px"></i>
+        </li>`;
+            this.list.innerHTML += htmlLI;
+        }
+    }
+
+    clearContent() {
+        this.list.innerHTML = ``;
     }
 }

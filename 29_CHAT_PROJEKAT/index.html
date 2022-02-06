@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITBootcamp Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,10 +20,11 @@
         </header>
         <!-- 4 Buttons for changing the chatroom -->
         <nav>
-            <button id="btnGeneral" class="btn">#general</button>
-            <button id="btnJS" class="btn">#js</button>
-            <button id="btnHomework" class="btn">#homework</button>
-            <button id="btnTests" class="btn">#tests</button>
+            <button id="general" class="btn">#general</button>
+            <button id="js" class="btn">#js</button>
+            <button id="homework" class="btn">#homework</button>
+            <button id="tests" class="btn">#tests</button>
+            <!-- before changing IDs here, check chat.js set room () -->
         </nav>
         <!-- Section for text messages output -->
         <section class="chatArea">
@@ -31,9 +33,20 @@
             </ul>
             <!-- we can use either UL LI or DIV -->
         </section>
+        <!-- Input field for colours -->
+        <form method="get" id="colorPicker">
+            <input type="color" name="colour" id="colour" value="#ffffff">
+            <input type="submit" value="Update colour" id="submitColour" class="btn">
+        </form>
+        <!-- Input field for time -->
+        <form method="get" id="time">
+            <input type="datetime-local" name="startDate" id="startDate">
+            <input type="datetime-local" name="endDate" id="endDate">
+            <input type="submit" value="Set dates" id="setDate" class="btn">
+        </form>
         <!-- Input field for sending text messages -->
         <form id="formInputMessage">
-            <input type="text" placeholder="Your message" id="inputMessage">
+            <input type="textarea" placeholder="Your message" id="inputMessage">
             <input type="submit" value="Send" id="btnSend" class="btn">
         </form>
         <!-- Input field for updating the username -->
@@ -41,6 +54,7 @@
             <input type="text" placeholder="Update username" id="inputUsername">
             <input type="submit" value="Update" id="btnUpdate" class="btn">
         </form>
+        <small>You've successfully changed your username to </small>
     </div>
 
     <!-- The end, scripts are below -->
