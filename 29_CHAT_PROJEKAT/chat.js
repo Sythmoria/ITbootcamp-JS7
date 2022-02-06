@@ -88,18 +88,15 @@ export class Chatroom {
             .orderBy("createdAt")
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
-                    // Following changes: -> testing snapshot
-                    // console.log(change.type);
-
                     //Write the documents that are added to the database
                     if (change.type == "added") {
-                        // console.log("A change has occurred in the dabatase.");
-                        callback(change.doc.data());
+                        callback(change.doc);
                         //we're sending data to callback, to choose how we'll print this
                     }
                 });
             });
     }
+
     //Method that erases messages
     deleteMessage(id) {
         this.chats

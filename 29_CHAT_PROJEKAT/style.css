@@ -42,11 +42,12 @@ h1, h2{
 
 nav{
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    flex: 1 1 auto;
 }
 nav button {
-    flex: 1 1 auto;
+    flex: 1;
+    border-radius: 10px;
+    margin: 0 5px;
 }
 
 .chatArea{
@@ -55,23 +56,22 @@ nav button {
     margin: 10px 0;
     max-width: 800px;
     /* min-width: 700px; */
-    background-color: aliceblue;
 }
 
 ul {
     /* overflow: hidden; */
     display: block;
     position: relative;
-    margin: 5px;
+    margin: 10px;
 }
 ul li {
     word-wrap: break-word;
     /* position: absolute; */
     width: 70%; 
-    background-color: var(--last-colour);
+    background: linear-gradient(135deg, rgba(138,147,238,1) 0%, rgba(210,212,233,1) 57%);
     border: none;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 15px;
+    padding: 10px;
     margin: 5px;
     list-style-type: none;
 }
@@ -81,12 +81,14 @@ ul li i {
 }
 
 .goRight{
-    background-color: rgb(236, 236, 187);
+    background: linear-gradient(135deg, rgba(246,215,231,1) 0%, rgba(243,200,220,1) 33%, rgba(240,150,188,1) 69%);
     float: right;
+    border-top-right-radius: 0;
 }
 
 .goLeft{
     float: left;
+    border-top-left-radius: 0;
 }
 
 .btn{
@@ -140,8 +142,19 @@ small{
 
 /* RESPONSIVE */
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 860px) {
     nav {   
-      flex-direction: column;
+        flex: 2;
     }
   }
+
+@media only screen and (max-width: 750px) {
+    nav {   
+        flex: 2;
+        display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+

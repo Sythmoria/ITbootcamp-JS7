@@ -10,7 +10,8 @@ let inputUsername = document.querySelector('#inputUsername');
 let navigationRooms = document.querySelector('nav');
 let submitColour = document.querySelector('#submitColour');
 let colour = document.querySelector('#colour');
-let chatArea = document.querySelector('#chatArea')
+let chatArea = document.querySelector('.chatArea');
+
 
 // Objects classes
 // let chatroom = new Chatroom("js", "Michelle");
@@ -36,16 +37,33 @@ function checkRoom() {
 
 let chatroom = new Chatroom(checkRoom(), checkUsername());
 
-// option 2:
-// let username = "Anonymous"
-// if (localStorage.username) {
-//     username = localStorage.username;
-// }
-// let chatroom = new Chatroom("js", username);
-
 // printing the text messages on the page
 chatroom.getChats(d => {
     chatUI.templateLI(d);
+    setVisual();
+});
+
+// load the colour, if any is saved in Local Storage
+function setVisual() {
+    if (localStorage.colour) {
+        chatArea.style.backgroundColor = `${localStorage.colour}`;
+        colour.value = `${localStorage.colour}`;
+    }
+};
+
+// checking what room is clicked on and showing the corresponding chat messages:
+navigationRooms.addEventListener('click', e => {
+    if (e.target.tagName == "BUTTON") {
+        // 1. clear content
+        chatUI.clearContent();
+        // 2. change room
+        chatroom.updateRoom(e.target.id);
+        // 3. show chats
+        chatroom.getChats(data => {
+            chatUI.templateLI(data);
+        });
+        localStorage.setItem("room", e.target.id);
+    }
 });
 
 // adding new messages by clicking on Send:
@@ -66,41 +84,34 @@ formInputMessage.addEventListener('submit', e => {
 // updating username:
 formUsername.addEventListener('submit', e => {
     e.preventDefault();
+    location.reload();
     let newUsername = inputUsername.value;
     // console.log(newUsername); //testing if the value is good
     chatroom.updateUsername(newUsername);
     formUsername.reset();
 });
 
-// checking what room is clicked on:
-navigationRooms.addEventListener('click', e => {
-    // console.log(e.target);
-    // console.log(e.target.id);
-    if (e.target.tagName == "BUTTON") {
-        // e.target.remove(); //we use this only if we want to remove the buttons
-        // 1. clear content
-        chatUI.clearContent();
-        // 2. change room
-        chatroom.updateRoom(e.target.id);
-        // 3. show chats
-        chatroom.getChats(data => {
-            chatUI.templateLI(data);
-        });
-        localStorage.setItem("room", e.target.id);
-    }
-});
-
 // checking the selected colours:
 submitColour.addEventListener('click', e => {
     e.preventDefault();
     let colourValue = colour.value;
+    console.log(colourValue);
     setTimeout(() => {
         localStorage.setItem(`colour`, `${colourValue}`);
-        chatArea.style.backgroundColor = `10 px solid ${localStorage.colour}`;
+        chatArea.style.backgroundColor = `${localStorage.colour}`;
     }, 500);
+});
+
+// deleting messages
+chatArea.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.tagName == "I") {
+        confirm("Are you sure you want to remove this message?");
+        e.target.parentElement.remove();
+        chatroom.deleteMessage(e.target.parentElement.id);
+    }
 });
 
 // let stb = (a) => {
 //     a.scrollTop = a.scrollHeight;
 // };
-
