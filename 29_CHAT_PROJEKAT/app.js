@@ -18,7 +18,6 @@ let setDate = document.querySelector('#setDate');
 
 
 // Objects classes
-// let chatroom = new Chatroom("js", "Michelle");
 let chatUI = new ChatUI(containerChatList);
 
 function checkUsername() {
@@ -45,6 +44,7 @@ let chatroom = new Chatroom(checkRoom(), checkUsername());
 chatroom.getChats(d => {
     chatUI.templateLI(d);
     setVisual();
+    chatArea.scrollTop = chatArea.scrollHeight;
 });
 
 // load the colour, if any is saved in Local Storage
@@ -74,7 +74,6 @@ navigationRooms.addEventListener('click', e => {
 formInputMessage.addEventListener('submit', e => {
     e.preventDefault();
     let message = inputMessage.value;
-    // console.log(message); //testing if the value is good
     chatroom.addChat(message)
         .then(() => {
             console.log(`Successful.`);
@@ -83,7 +82,7 @@ formInputMessage.addEventListener('submit', e => {
         .catch(error => {
             console.log(`An error has occurred: ${error}`);
         })
-
+    chatArea.scrollTop = chatArea.scrollHeight;
 });
 
 // updating username:
@@ -128,9 +127,11 @@ chatArea.addEventListener('click', e => {
                 }
             }
             confirmDelete();
+            chatArea.scrollTop = chatArea.scrollHeight;
         }
         else {
             parent.remove();
+            chatArea.scrollTop = chatArea.scrollHeight;
         }
     }
 });

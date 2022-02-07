@@ -5,7 +5,7 @@ export class Chatroom {
         this.room = rm;
         this.username = un;
         this.chats = db.collection('chats');
-        this.unsub = false; //false is a signal that the page has been loaded once
+        this.unsub = false;
     }
     // get and set for ROOM
     set room(rm) {
@@ -36,7 +36,6 @@ export class Chatroom {
     validateUsername(a) {
         a = a.trim();
         if (a.length >= 2 && a.length <= 10 && /^[a-zA-Z0-9\s'-]+$/.test(a) === true) {
-            //  /^[a-zA-Z0-9\s'-]+$/; //^ is added to ensure username starts with a letter, and $ is added so that we could check the END of the string ; \s is for white spaces -> if it's true, it's valid
             return true;
         }
         else {
@@ -57,8 +56,7 @@ export class Chatroom {
     updateRoom(newRoom) {
         this.room = newRoom;
         if (this.unsub != false) {
-            // in getChats it became a function so it's not false anymore
-            this.unsub(); //it's now a function
+            this.unsub();
         }
     }
 
@@ -79,8 +77,8 @@ export class Chatroom {
             alert(`You've tried sending an empty message`);
         }
         //saving the document into the database
-        let response = await this.chats.add(chatTemplate); //we added await so we could wait for this to complete
-        return response; //returning Promise, and we can add then() and catch() for this response   
+        let response = await this.chats.add(chatTemplate);
+        return response;
     }
 
     //Method that reacts to changes
@@ -90,10 +88,8 @@ export class Chatroom {
             .orderBy("createdAt")
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
-                    //Write the documents that are added to the database
                     if (change.type == "added") {
                         callback(change.doc);
-                        //we're sending data to callback, to choose how we'll print this
                     }
                 });
             });
