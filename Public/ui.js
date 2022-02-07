@@ -21,7 +21,7 @@ export class ChatUI {
         minutes = String(minutes).padStart(2, "0");
         let today = new Date();
         if (date.getDate() === today.getDate()) {
-            return `${day}/${month}/${year}`;
+            return `${hour}:${minutes}`;
         }
         else {
             return `${day}/${month}/${year} ${hour}:${minutes}`;
