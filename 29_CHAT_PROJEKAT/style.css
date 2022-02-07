@@ -7,11 +7,15 @@
 }
 
 body {
-background: url(https://images.unsplash.com/photo-1603665143615-4b7cafb5366b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) no-repeat center center fixed;
+background: url(https://images.unsplash.com/photo-1603665143615-4b7cafb5366b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
 /* Unsplash, @pawel_czerwinski, https://unsplash.com/photos/A3DyYLGO0kQ */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 :root{
@@ -22,17 +26,14 @@ background: url(https://images.unsplash.com/photo-1603665143615-4b7cafb5366b?ixl
 
 .container {
     background: rgba(250, 250, 250, 0.6); 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
     padding: 10px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, .3);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 800px;
+    justify-self: center;
+    width: 60vh;
+    margin: 50px 0;
 }
 
 h1, h2{
@@ -42,32 +43,37 @@ h1, h2{
 
 nav{
     margin: auto;
-    flex: 1 1 auto;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
 nav button {
-    flex: 1;
-    border-radius: 10px;
-    margin: 0 5px;
+    margin: 5px 0;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+nav button:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em #000;
+    /* x offset, y offset, blur radius, spread radius */
+    transform: translateY(-0.25em); /* negative value moves it upwards*/
+    cursor: pointer;
 }
 
 .chatArea{
     height: 600px;
     overflow: scroll;
     margin: 10px 0;
-    max-width: 800px;
-    /* min-width: 700px; */
 }
 
 ul {
-    /* overflow: hidden; */
     display: block;
     position: relative;
     margin: 10px;
 }
 ul li {
     word-wrap: break-word;
-    /* position: absolute; */
-    width: 70%; 
+    width: 55%; 
     background: linear-gradient(135deg, rgba(138,147,238,1) 0%, rgba(210,212,233,1) 57%);
     border: none;
     border-radius: 15px;
@@ -98,6 +104,7 @@ ul li i {
     width: 200px;
     /* padding: 5px 0px; */
     height: 35px;
+    letter-spacing: 1px;
 }
 
 .btn:hover{
@@ -134,27 +141,9 @@ input[type='submit']{
 
 small{
     text-align: center;
-    color: purple;
+    color: var(--main-colour);
     visibility: hidden;
 }
 
 
-
-/* RESPONSIVE */
-
-@media only screen and (max-width: 860px) {
-    nav {   
-        flex: 2;
-    }
-  }
-
-@media only screen and (max-width: 750px) {
-    nav {   
-        flex: 2;
-        display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
 

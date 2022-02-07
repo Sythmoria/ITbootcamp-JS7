@@ -1,3 +1,5 @@
+import { startValueFirebase, endValueFirebase } from "./app.js";
+
 export class Chatroom {
     constructor(rm, un) {
         this.room = rm;
@@ -107,6 +109,21 @@ export class Chatroom {
             })
             .catch(error => {
                 console.log("An error has occurred " + error);
+            })
+    }
+
+    showMsgsFromTo(callback) {
+        this.chats
+            .where('createdAt', '>=', startValueFirebase)
+            .where('createdAt', '<=', endValueFirebase)
+            .where('room', '==', this.room)
+            .orderBy('createdAt')
+            .onSnapshot(snapshot => {
+                snapshot.docChanges().forEach(change => {
+                    if (change.type == 'added') {
+                        callback(change.doc);
+                    }
+                });
             })
     }
 }

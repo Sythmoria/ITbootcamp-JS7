@@ -20,10 +20,10 @@
         </header>
         <!-- 4 Buttons for changing the chatroom -->
         <nav>
-            <button id="general" class="btn">#general</button>
-            <button id="js" class="btn">#js</button>
-            <button id="homework" class="btn">#homework</button>
-            <button id="tests" class="btn">#tests</button>
+            <button id="general" class="btn">GENERAL</button>
+            <button id="js" class="btn">JAVASCRIPT</button>
+            <button id="homework" class="btn">HOMEWORK</button>
+            <button id="tests" class="btn">TESTS</button>
             <!-- before changing IDs here, check chat.js set room () -->
         </nav>
         <!-- Section for text messages output -->
@@ -41,7 +41,7 @@
         <form method="get" id="time">
             <input type="datetime-local" name="startDate" id="startDate">
             <input type="datetime-local" name="endDate" id="endDate">
-            <input type="submit" value="Set dates" id="setDate" class="btn">
+            <input type="submit" value="Filter Messages" id="setDate" class="btn">
         </form>
         <!-- Input field for sending text messages -->
         <form id="formInputMessage">
@@ -53,7 +53,7 @@
             <input type="text" placeholder="Update username" id="inputUsername">
             <input type="submit" value="Update" id="btnUpdate" class="btn">
         </form>
-        <small>You've successfully changed your username to </small>
+        <small id="successUsername"></small>
     </div>
 
     <!-- The end, scripts are below -->
@@ -77,7 +77,7 @@
         firebase.initializeApp(firebaseConfig);
         let db = firebase.firestore();
     </script>
-    <!-- <script src="chat.js"></script> -->
+
     <script src="app.js" type="module"></script>
 </body>
 
