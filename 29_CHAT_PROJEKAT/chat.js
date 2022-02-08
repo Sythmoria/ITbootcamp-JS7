@@ -74,7 +74,7 @@ export class Chatroom {
             }
         }
         else {
-            alert(`You've tried sending an empty message`);
+            alert(`You've tried sending an empty message!`);
         }
         //saving the document into the database
         let response = await this.chats.add(chatTemplate);
