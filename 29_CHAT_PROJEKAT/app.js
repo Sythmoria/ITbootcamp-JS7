@@ -10,7 +10,8 @@ let inputUsername = document.querySelector('#inputUsername');
 let messageForChangedUsername = document.querySelector('#successUsername');
 let navigationRooms = document.querySelector('nav');
 let submitColour = document.querySelector('#submitColour');
-let colour = document.querySelector('#colour');
+let colour1 = document.querySelector('#colour1');
+let colour2 = document.querySelector('#colour2');
 let chatArea = document.querySelector('.chatArea');
 let startDate = document.querySelector('#startDate');
 let endDate = document.querySelector('#endDate');
@@ -40,18 +41,27 @@ function checkRoom() {
 
 let chatroom = new Chatroom(checkRoom(), checkUsername());
 
+// setting scroll
+let scrollDown = (a) => {
+    a.scrollTop = a.scrollHeight - a.clientHeight;
+};
+
 // printing the text messages on the page
 chatroom.getChats(d => {
     chatUI.templateLI(d);
     setVisual();
-    chatArea.scrollTop = chatArea.scrollHeight;
+    setTimeout(() => scrollDown(chatArea), 500);
 });
 
 // load the colour, if any is saved in Local Storage
 function setVisual() {
-    if (localStorage.colour) {
-        chatArea.style.background = `linear-gradient(180deg, ${localStorage.colour} 0%, rgba(254,254,254,1) 100%)`;
-        colour.value = `${localStorage.colour}`;
+    if (localStorage.colour1 == true && localStorage.colour2 == true) {
+        chatArea.style.background = `linear-gradient(135deg, ${localStorage.colour1} 0%, ${localStorage.colour2} 58%)`;
+        // for (let i = 3; i < containerChatList.childElementCount + 3; i++) {
+        //     containerChatList.childNodes[i].style.background = `linear-gradient(180deg, ${localStorage.colour1} 0%, ${localStorage.colour2} 58%)`;
+        // }
+        colour1.value = `${localStorage.colour1}`;
+        colour2.value = `${localStorage.colour2}`;
     }
 };
 
@@ -65,6 +75,7 @@ navigationRooms.addEventListener('click', e => {
         // 3. show chats
         chatroom.getChats(data => {
             chatUI.templateLI(data);
+            setTimeout(() => scrollDown(chatArea), 500);
         });
         localStorage.setItem("room", e.target.id);
     }
@@ -82,7 +93,6 @@ formInputMessage.addEventListener('submit', e => {
         .catch(error => {
             console.log(`An error has occurred: ${error}`);
         })
-    chatArea.scrollTop = chatArea.scrollHeight;
 });
 
 // updating username:
@@ -103,11 +113,12 @@ formUsername.addEventListener('submit', e => {
 // checking the selected colours:
 submitColour.addEventListener('click', e => {
     e.preventDefault();
-    let colourValue = colour.value;
-    console.log(colourValue);
+    let colour1Value = colour1.value;
+    let colour2Value = colour2.value;
     setTimeout(() => {
-        localStorage.setItem(`colour`, `${colourValue}`);
-        chatArea.style.background = `linear-gradient(180deg, ${localStorage.colour} 0%, rgba(254,254,254,1) 100%)`;
+        localStorage.setItem(`colour1`, `${colour1Value}`);
+        localStorage.setItem(`colour2`, `${colour2Value}`);
+        chatArea.style.background = `linear-gradient(135deg, ${localStorage.colour1} 0%, ${localStorage.colour2} 58%)`;
     }, 500);
 });
 
@@ -127,13 +138,12 @@ chatArea.addEventListener('click', e => {
                 }
             }
             confirmDelete();
-            chatArea.scrollTop = chatArea.scrollHeight;
         }
         else {
             parent.remove();
-            chatArea.scrollTop = chatArea.scrollHeight;
         }
     }
+    setTimeout(() => scrollDown(chatArea), 500);
 });
 
 let startValueFirebase;

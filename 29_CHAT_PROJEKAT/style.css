@@ -97,6 +97,12 @@ ul li i {
     border-top-left-radius: 0;
 }
 
+hr{
+    margin: 5px 0;
+    border-width: 0;
+    height: 1px;
+}
+
 .btn{
     background-color: var(--main-colour);
     color: white;
@@ -126,7 +132,7 @@ input:hover{
     border-color: var(--sub-colour);
 }
 
-input[type='text'], [type='textarea'], [type='color'] {
+input[type='text'], [type='textarea'] {
     height: 35px;
     width: 300px;
 }
@@ -136,6 +142,28 @@ input[type='datetime-local']{
 }
 input[type='submit']{
     margin-left: 5px;
+}
+input[type='color'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    background-color: transparent;
+}
+input[type='color']::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
+input[type='color']::-moz-color-swatch {
+    border-radius: 50%;
+    border: none;
+}
+
+#submitColour{
+    border-radius: 25px;
 }
 
 small{

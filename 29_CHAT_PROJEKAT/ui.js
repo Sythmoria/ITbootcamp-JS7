@@ -38,8 +38,8 @@ export class ChatUI {
         <strong>${data.username}</strong> 
         <br>
         ${data.message}
-        <br>
-        ${this.formatDate(date)}  <i class="fa fa-trash-o" style="font-size:24px"></i>
+        <hr style="background-image: linear-gradient(90deg, transparent, gray);">
+        <span style="color:gray">${this.formatDate(date)}</span>  <i class="fa fa-trash-o" style="font-size:16px; color:gray"></i>
         </li>`;
             this.list.innerHTML += htmlLI;
         }
@@ -49,8 +49,8 @@ export class ChatUI {
                 <strong>${data.username}</strong>
             <br>
             ${data.message}
-            <br>
-        ${this.formatDate(date)}  <i class="fa fa-trash-o" style="font-size:24px"></i>
+            <hr style="background-image: linear-gradient(90deg, gray, transparent);">
+            <span style="color:gray">${this.formatDate(date)}</span>  <i class="fa fa-trash-o" style="font-size:16px; color:gray"></i>
         </li>`;
             this.list.innerHTML += htmlLI;
         }
