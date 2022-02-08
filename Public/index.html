@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITBootcamp Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Title -->
+        <header>
+            <h1>IT Bootcamp Chat</h1>
+            <h2>Choose a chatroom</h2>
+        </header>
+        <!-- 4 Buttons for changing the chatroom -->
+        <nav>
+            <button id="general" class="btn">GENERAL</button>
+            <button id="js" class="btn">JAVASCRIPT</button>
+            <button id="homework" class="btn">HOMEWORK</button>
+            <button id="tests" class="btn">TESTS</button>
+            <!-- before changing IDs here, check chat.js set room () -->
+        </nav>
+        <!-- Section for text messages output -->
+        <section class="chatArea">
+            <ul>
+                <!-- Messages go here -->
+            </ul>
+        </section>
+        <!-- Input field for colours -->
+        <form method="get" id="colorPicker">
+            <input type="color" name="colour" id="colour1" value="#800080">
+            <input type="color" name="colour" id="colour2" value="#ffa0ff">
+            <input type="submit" value="Update Chat Area Colour" id="submitColour" class="btn">
+        </form>
+        <!-- Input field for time -->
+        <form method="get" id="time">
+            <input type="datetime-local" name="startDate" id="startDate">
+            <input type="datetime-local" name="endDate" id="endDate">
+            <input type="submit" value="Filter Messages" id="setDate" class="btn">
+        </form>
+        <!-- Input field for sending text messages -->
+        <form id="formInputMessage">
+            <input type="textarea" placeholder="Your message" id="inputMessage">
+            <input type="submit" value="Send" id="btnSend" class="btn">
+        </form>
+        <!-- Input field for updating the username -->
+        <form id="formUsername">
+            <input type="text" placeholder="Update username" id="inputUsername">
+            <input type="submit" value="Update" id="btnUpdate" class="btn">
+        </form>
+        <small id="successUsername"></small>
+    </div>
+
+    <!-- The end, scripts are below -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAv_xaoANKA48gSC3Ml3ROkTDGNJoS7aBI",
+            authDomain: "itboocamp-js7-msz.firebaseapp.com",
+            projectId: "itboocamp-js7-msz",
+            storageBucket: "itboocamp-js7-msz.appspot.com",
+            messagingSenderId: "521239618165",
+            appId: "1:521239618165:web:7c14f8ee6f2416fc130e3c",
+            measurementId: "G-W4SCJDTEQH"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+    </script>
+
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
